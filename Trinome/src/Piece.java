@@ -20,4 +20,9 @@ public class Piece {
     public void cirle(){
         //dessiner un cercle autour du pion
     }
+   
+    public void moves(int[] newpos){
+        position= newpos.clone();
+    }
+    
 }

@@ -8,9 +8,7 @@ public class Pyramide extends Piece {
         sprite = "pyramide.png";//ou un truc du genre
     }
 
-    public void moves(){
 
-    }
 
     public void radar(){
 

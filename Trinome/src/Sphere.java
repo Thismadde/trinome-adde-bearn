@@ -7,9 +7,6 @@ public class Sphere extends Piece {
         sprite = "sphere.png";//ou un truc du genre
     }
     
-    public void moves(){
-
-    }
 
     public void radar(){
 

@@ -7,9 +7,6 @@ public class Cube extends Piece {
         sprite = "cube.png";//ou un truc du genre
     }
     
-    public void moves(){
-
-    }
 
     public void radar(){
 
