@@ -2,7 +2,7 @@ public class Piece {
     
     private boolean isDead;
     private boolean frozen; 
-    private int[] position;
+    public int[] position;
     private String color;
 
     public  Piece(boolean health, boolean fix, int[] pos, String team){

@@ -7,8 +7,8 @@ public class Plateau {
         dimensions = new int[] {botR[0]-topL[0], botR[1]-topL[1]};
     }
 
-    public void isOccupied(){
-
+    public String isOccupied(int p1, int p2){
+        return "yes";
     }
 
     public void blit(){
