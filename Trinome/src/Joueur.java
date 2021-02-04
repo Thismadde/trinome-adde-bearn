@@ -5,22 +5,24 @@ import java.util.List;
 public class Joueur {
     
     private String name;
-    private LinkedList<Piece> pawns;
+    public LinkedList<Piece> pawns;
     private String color;
 
     public Joueur(String n, String c){
         name = n; color = c;
     }
 
-    public int[][] selectPawn(){
-        //return pawn.radar();
+    public LinkedList<int[]> selectPawn(){
+        //lister les pawns du joueur, select un, puis return 
+        
+        return pawn.radar();
     }
 
     public void movePawn(Piece pawn, int[] newpos, Joueur j){
         Iterator<Piece> it = j.pawns.iterator();
         while (it.hasNext()){
             Piece p = it.next();
-            if (p.position.equals(newpos){
+            if (p.position.equals(newpos)){
                 j.deletePawn(p);
             }
             
@@ -33,9 +35,11 @@ public class Joueur {
         Iterator<Piece> it = pawns.iterator();
         while (it.hasNext()){
             Piece pawn = it.next();
-            if (pawn.equals(p){
-                pawn =null;
+            if (pawn.equals(p)){
+                pawns.remove(pawn);
+                break;
             }
+        }
     }
 
     public void pause(){
