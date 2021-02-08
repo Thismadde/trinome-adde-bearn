@@ -40,9 +40,7 @@ public class CubeSpe extends Cube{
         if(!selfConflict(position[0],position[1]-1, j)){
             int[] npos = {position[0],position[1]-1};
             zbleh.add(npos);
-        }
-   
-            
-        }
-    }  
+        }          
+    }
+}  
       
