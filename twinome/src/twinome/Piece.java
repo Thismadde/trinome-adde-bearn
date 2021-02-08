@@ -1,7 +1,16 @@
-import java.util.Iterator;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 
+package twinome;
+
+/**
+ *
+ * @author Utilisateur
+ */
 public class Piece {
-    
     private boolean isDead;
     protected boolean frozen; 
     public int[] position;
@@ -29,15 +38,14 @@ public class Piece {
             frozen = true;
     }
     
-    public boolean selfConflict(int p1,int p2, Joueur j){
-        Iterator<Piece> it = j.pawns.iterator();
-        while (it.hasNext()){
-            Piece pawn = it.next();
-            if (pawn.position[0]==p1 && pawn.position[1]==p2){
-                return true;
-            }
-        }
-        return false;
-    }
-    
+//    public boolean selfConflict(int p1,int p2, Joueur j){
+//        Iterator<Piece> it = j.pawns.iterator();
+//        while (it.hasNext()){
+//            Piece pawn = it.next();
+//            if (pawn.position[0]==p1 && pawn.position[1]==p2){
+//                return true;
+//            }
+//        }
+//        return false;
+//    }
 }
