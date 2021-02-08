@@ -3,12 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package app;
 
 /**
  *
- * @author clary
+ * @author Utilisateur
  */
-public class CubeSpe {
-    
+public class Plateau {
+
 }
