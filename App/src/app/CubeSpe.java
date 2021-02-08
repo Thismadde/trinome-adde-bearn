@@ -24,22 +24,22 @@ public class CubeSpe extends Cube {
         
         //-1 0
         if(!selfConflict(position[0]-1,position[1], j)){
-            int[] npos = {position[0]-2,position[1]-2};
+            int[] npos = {position[0]-1,position[1]};
             zbleh.add(npos);
         }
         //0 +1
         if(!selfConflict(position[0],position[1]+1, j)){
-            int[] npos = {position[0]-2,position[1]-2};
+            int[] npos = {position[0],position[1]+1};
             zbleh.add(npos);
         }
         //+1 0
         if(!selfConflict(position[0]+1,position[1], j)){
-            int[] npos = {position[0]-2,position[1]-2};
+            int[] npos = {position[0]+1,position[1]};
             zbleh.add(npos);
         }
         //0 -1
         if(!selfConflict(position[0],position[1]-1, j)){
-            int[] npos = {position[0]-2,position[1]-2};
+            int[] npos = {position[0],position[1]-1};
             zbleh.add(npos);
         }
    
@@ -47,4 +47,4 @@ public class CubeSpe extends Cube {
         }
     }  
         
-}
+
