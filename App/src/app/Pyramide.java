@@ -5,6 +5,8 @@
  */
 package app;
 
+import java.util.LinkedList;
+
 /**
  *
  * @author clary
@@ -20,8 +22,6 @@ public class Pyramide extends Piece {
     }
 
 
-
-<<<<<<< HEAD
     public void radar(Joueur j){
         LinkedList<int[]> zbleh = new LinkedList<>();
         
@@ -47,10 +47,6 @@ public class Pyramide extends Piece {
         } else {
             
         }
-        
-=======
-    public void radar(){
->>>>>>> f85dd30ff7cf512d6311453df7e39168dbe562b5
 
     }
 
