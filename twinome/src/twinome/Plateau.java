@@ -4,22 +4,23 @@
  * and open the template in the editor.
  */
 
-package twinome;
+//package twinome;
 
 /**
  *
  * @author Utilisateur
  */
 
+import java.util.ArrayList;
 import java.util.Iterator;
 
 public class Plateau {
     
-    private int[] dimensions;
+    public ArrayList<Piece> pions;
     private String sprite;
 
-    public Plateau(int[] topL, int[] botR){
-        dimensions = new int[] {botR[0]-topL[0], botR[1]-topL[1]};
+    public Plateau(){
+        pions = new ArrayList<Piece>();
     }
 
 //    public String isOccupied(int p1, int p2, Joueur j){
