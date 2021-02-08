@@ -5,6 +5,8 @@
  */
 package app;
 
+import java.util.LinkedList;
+
 /**
  *
  * @author clary
@@ -20,8 +22,31 @@ public class Pyramide extends Piece {
     }
 
 
-
-    public void radar(){
+    public void radar(Joueur j){
+        LinkedList<int[]> zbleh = new LinkedList<>();
+        
+        //-1 +1
+        if(!selfConflict(position[0]-1,position[1]+1, j)){
+            int[] npos = {position[0]-1,position[1]+1};
+            zbleh.add(npos);
+        }
+        //-1 -1
+        if(!selfConflict(position[0]-1,position[1]-1, j)){
+            int[] npos = {position[0]-1,position[1]-1};
+            zbleh.add(npos);
+        }
+        //+1 +1
+        if(!selfConflict(position[0]+1,position[1]+1, j)){
+            int[] npos = {position[0]+1,position[1]+1};
+            zbleh.add(npos);
+        }
+        //+1 -1
+        if(!selfConflict(position[0]+1,position[1]-1, j)){
+            int[] npos = {position[0]+1,position[1]-1};
+            zbleh.add(npos);
+        } else {
+            
+        }
 
     }
 
