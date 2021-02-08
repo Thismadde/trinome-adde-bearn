@@ -40,5 +40,27 @@ public class PyramSpe extends Pyramide{
             int[] npos = {position[0]+1,position[1]-1};
             zbleh.add(npos);
         }
+        
+        //-2 -2
+        if(selfConflict(position[0]-1,position[1]-1, j)){
+            int[] npos = {position[0]-2,position[1]-2};
+            zbleh.add(npos);
+        }
+        //-2 +2
+        if(selfConflict(position[0]-1,position[1]+1, j)){
+            int[] npos = {position[0]-2,position[1]+2};
+            zbleh.add(npos);
+        }
+        //+2 +2
+        if(selfConflict(position[0]+1,position[1]+1, j)){
+            int[] npos = {position[0]+2,position[1]+2};
+            zbleh.add(npos);
+        }
+        //+2 -2
+        if(selfConflict(position[0]+1,position[1]-1, j)){
+            int[] npos = {position[0]+2,position[1]-2};
+            zbleh.add(npos);
+        }
+        
     }
 }
