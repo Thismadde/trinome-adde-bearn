@@ -5,10 +5,18 @@
  */
 package app;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author clary
  */
-public class PyramSpe {
+public class PyramSpe extends Pyramide {
     
+    public PyramSpe(boolean health, boolean fix, int[] pos, String team) {
+        super(health, fix, pos, team);
+    }
+    
+ 
+
 }
