@@ -21,25 +21,25 @@ public class PyramSpe extends Pyramide{
         LinkedList<int[]> zbleh = new LinkedList<>();
         
         //-1 +1
-        if(!selfConflict(position[0]-1,position[1]+1, j)){
-            int[] npos = {position[0]-1,position[1]+1};
-            zbleh.add(npos);
-        }
-        //-1 -1
-        if(!selfConflict(position[0]-1,position[1]-1, j)){
-            int[] npos = {position[0]-1,position[1]-1};
-            zbleh.add(npos);
-        }
-        //+1 +1
-        if(!selfConflict(position[0]+1,position[1]+1, j)){
-            int[] npos = {position[0]+1,position[1]+1};
-            zbleh.add(npos);
-        }
-        //+1 -1
-        if(!selfConflict(position[0]+1,position[1]-1, j)){
-            int[] npos = {position[0]+1,position[1]-1};
-            zbleh.add(npos);
-        }
+//        if(!selfConflict(position[0]-1,position[1]+1, j)){
+//            int[] npos = {position[0]-1,position[1]+1};
+//            zbleh.add(npos);
+//       }
+//        //-1 -1
+//        if(!selfConflict(position[0]-1,position[1]-1, j)){
+//            int[] npos = {position[0]-1,position[1]-1};
+//            zbleh.add(npos);
+//        }
+//        //+1 +1
+//        if(!selfConflict(position[0]+1,position[1]+1, j)){
+//            int[] npos = {position[0]+1,position[1]+1};
+//            zbleh.add(npos);
+//        }
+//        //+1 -1
+//        if(!selfConflict(position[0]+1,position[1]-1, j)){
+//            int[] npos = {position[0]+1,position[1]-1};
+//            zbleh.add(npos);
+//        }
         
         //-2 -2
         if(selfConflict(position[0]-1,position[1]-1, j)){
