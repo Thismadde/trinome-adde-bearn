@@ -10,6 +10,14 @@
  *
  * @author Utilisateur
  */
-public class CubeSpe {
+public class CubeSpe extends Cube{
+
+    public CubeSpe(boolean health, boolean fix, Integer[] pos, String team){
+        super(health, fix, pos, team);
+    }
+    public String getType(){
+        return "Cube S ";
+    }
+
 
 }

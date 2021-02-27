@@ -14,10 +14,15 @@ import java.util.ArrayList;
 
 public class SphereSpe extends Sphere {
 
-    public SphereSpe(boolean health, boolean fix, int[] pos, String team){
+    public SphereSpe(boolean health, boolean fix, Integer[] pos, String team){
         super(health, fix, pos, team);
     }
     
+    public String getType(){
+        return "Pyramide S ";
+    }
+
+
 //    @Override
 //    public ArrayList<int[]> radar(Plateau plato, Joueur j, Joueur j2){
 //        ArrayList<int[]> zbleh = new ArrayList<>();

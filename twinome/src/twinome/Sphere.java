@@ -18,9 +18,13 @@ public class Sphere extends Piece {
     
     private String sprite;
 
-    public Sphere(boolean health, boolean fix, int[] pos, String team){
+    public Sphere(boolean health, boolean fix, Integer[] pos, String team){
         super(health, fix, pos, team);
         sprite = "sphere.png";//ou un truc du genre
+    }
+
+    public String getType(){
+        return "Sphere ";
     }
 
 

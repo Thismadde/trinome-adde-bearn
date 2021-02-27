@@ -33,7 +33,7 @@ public class Joueur {
         }
         Scanner sc = new Scanner(System.in);
         int popos1 = sc.nextInt(); int popos2 = sc.nextInt();
-        pawns.;
+        
         return pawn.radar();
     }
 
