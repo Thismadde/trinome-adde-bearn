@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package twinome;
+//package twinome;
 
 /**
  *
@@ -17,10 +17,18 @@ public class Piece {
     private String color;
 
     public  Piece(boolean health, boolean fix, int[] pos, String team){
-        isDead = health; frozen = fix; position = pos.clone() ; color = team;
+        isDead = health; frozen = fix; position = pos.clone() ; setColor(team);
     }
 
-    public void dies(){
+    public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+	public void dies(){
         isDead = true;
     }
 
@@ -34,7 +42,7 @@ public class Piece {
    
     public void moves(int[] newpos){
         position= newpos.clone();
-        if ((color.equals("rouge") && position[1]==1 && 4<position[0] && position[0]<8) || (color.equals("vert") && position[1]==11 && 4<position[0] && position[0]<8))
+        if ((getColor().equals("rouge") && position[1]==1 && 4<position[0] && position[0]<8) || (getColor().equals("vert") && position[1]==11 && 4<position[0] && position[0]<8))
             frozen = true;
     }
     
