@@ -17,11 +17,15 @@ public class Cube extends Piece {
     
     private String sprite;
 
-    public Cube(boolean health, boolean fix, int[] pos, String team){
+    public Cube(boolean health, boolean fix, Integer[] pos, String team){
         super(health, fix, pos, team);
         sprite = "cube.png";//ou un truc du genre
     }
     
+    public String getType(){
+        return "Cube ";
+    }
+
 
 //    public void radar(Joueur j){
 //        LinkedList<int[]> zbleh = new LinkedList<>();
