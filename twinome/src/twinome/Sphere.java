@@ -30,8 +30,14 @@ public class Sphere extends Piece {
 
     @Override
     public ArrayList<Integer[]> radar(ArrayList<Piece> pionsr, ArrayList<Piece> pionsv){
-        if (color.equals("rouge")){
-            sameCoL = (ArrayList<Piece>) pionsr.clone();
+
+        
+        // renvoie les cases ou le pion peut aller
+
+ 
+
+        if (color.equals("rouge")){                                             //selon la couleur du pion on attribue aux deux listes pionsr et pionsv des noms differents (on les clone sous des noms differents en fait)
+            sameCoL = (ArrayList<Piece>) pionsr.clone();                        //et apres relecture je me rend compte que ca ne sert a rien, genre vraiment on fait la meme chose aux deux...
             otherCol = (ArrayList<Piece>) pionsv.clone();
         }
         else if (color.equals("vert")){
@@ -39,7 +45,7 @@ public class Sphere extends Piece {
             otherCol = (ArrayList<Piece>) pionsr.clone();
         } 
 
-        ArrayList<Integer[]> zbleh = new ArrayList<>();
+        ArrayList<Integer[]> zbleh = new ArrayList<>();         //liste des cases atteignables disponibles
         
         //-2 -2
         if(!conflict(position[0]-2,position[1]-2, otherCol) && !conflict(position[0]-2,position[1]-2, sameCoL) && (0<position[0]-2) && (0<position[1]-2)){

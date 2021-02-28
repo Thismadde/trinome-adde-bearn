@@ -16,12 +16,10 @@ import java.util.LinkedList;
 
 public class Cube extends Piece {
     
-    private String sprite;
     private ArrayList<Piece> sameCol;
 
     public Cube(boolean health, boolean fix, Integer[] pos, String team){
         super(health, fix, pos, team);
-        sprite = "cube.png";//ou un truc du genre
     }
     
     public String getType(){
@@ -30,16 +28,20 @@ public class Cube extends Piece {
 
     @Override
     public ArrayList<Integer[]> radar(ArrayList<Piece> pionsr, ArrayList<Piece> pionsv){
-        if (color.equals("rouge")){
-            sameCol = (ArrayList<Piece>) pionsr.clone();
-        }
-        else if (color.equals("vert")){
-            sameCol = (ArrayList<Piece>) pionsv.clone();
+
+        // renvoie les cases ou le pion peut aller
+
+
+        if (color.equals("rouge")){                                 //
+            sameCol = (ArrayList<Piece>) pionsr.clone();            //
+        }                                                           // selon la couleur du pion, on etudiera une liste differente
+        else if (color.equals("vert")){                             //
+            sameCol = (ArrayList<Piece>) pionsv.clone();            //
         } 
 
-        ArrayList<Integer[]> zbleh = new ArrayList<>();
+        ArrayList<Integer[]> zbleh = new ArrayList<>();   //liste des cases atteignables disponibles
 
-        //-1 0
+        //-1 0    <= deplacement testé sur lase de coordonnées [x-1,y]
         if(!conflict(position[0]-1,position[1], sameCol) && (0<position[0]-1)){
             Integer[] npos = {position[0]-1,position[1]};
             zbleh.add(npos);
@@ -62,7 +64,7 @@ public class Cube extends Piece {
         return zbleh;
     }
 
-    public void blit(){
+    public void blit(){ //pour l'interface graphique peut-etre
         
     }
 }

@@ -60,22 +60,16 @@ public class Twinome {
                 pjok.joker(plato.pionsv);
             }
             if(z){System.out.println("Position non valide!");continue;}
-            if (!plato.cfroze && (p.getType().equals("Cube ") || (p.getType().equals("Cube S ")&&!p.jok))&&p.frozen)
-                plato.cfroze  = true;
-            if (!plato.pfroze && (p.getType().equals("Pyramide ") || p.getType().equals("Pyramide S "))&&p.frozen)
-                plato.pfroze  = true;
-            if (!plato.sfroze && (p.getType().equals("Sphere ") || p.getType().equals("Sphere S "))&&p.frozen)
-                plato.sfroze  = true;
             if(plato.endGame()){
                 System.out.println("Le gagnant est : "+p.getColor());
                 break;
             }
-            //System.out.println("Continuer? (oui = O, non = N)");
-            //play = sc.next().equals("O");
-            ////if(tour==1)
-            //    tour=0;
-            //else if(tour==0)
-            //    tour=1;
+            System.out.println("Continuer? (oui = O, non = N)");
+            play = sc.next().equals("O");
+            if(tour==1)
+                tour=0;
+            else if(tour==0)
+                tour=1;
         }while (play);
         sc.close();
 

@@ -22,7 +22,7 @@ public class Piece {
     public boolean jok = false;
 
     public  Piece(boolean health, boolean fix, Integer[] pos, String team){
-        isDead = health; frozen = fix; position = pos.clone() ; setColor(team);
+        isDead = health; frozen = fix; position = pos.clone() ; color = team;
     }
 
     public String getColor() {
@@ -33,40 +33,28 @@ public class Piece {
         return "Piepiece";
     }
 
-	public void setColor(String color) {
-		this.color = color;
-	}
-
-	public void dies(){
-        isDead = true;
-    }
-
-    public void joker(ArrayList<Piece> pions){
-    }
-
-    public void cirle(){
-        //dessiner un cercle autour du pion
+    public void joker(ArrayList<Piece> pions){ //pour pouvoir appeler joker sur toutes les pieces, meme si dans les fait seule le joker() des cubes speciaux nous interesse
     }
    
-    public void movesEnd(Integer[] newpos){
+    public void movesEnd(Integer[] newpos){ //sert a actualiser la position du point apres avoir selectionné la destination, et a changer le caractere figé des pieces selon leur position apres le deplacement
         position= newpos.clone();
-        if ((getColor().equals("rouge") && position[0]==11 && 4<position[1] && position[1]<8) || (getColor().equals("vert") && position[0]==1 && 4<position[1] && position[1]<8))
+        if ((getColor().equals("rouge") && position[0]==11 && 4<position[1] && position[1]<8) ||   //conditions pour les rouges
+            (getColor().equals("vert")  && position[0]==1  && 4<position[1] && position[1]<8))     //conditions pour les verts
             frozen = true;
     }
 
-    public ArrayList<Integer[]> radar(ArrayList<Piece> pionsr, ArrayList<Piece> pionsv){
-        System.out.println("Piece mal définie(je crois)");
+    public ArrayList<Integer[]> radar(ArrayList<Piece> pionsr, ArrayList<Piece> pionsv){ //pareil que joker() plus haut ^
         return new ArrayList<>();
     }
     
-    public boolean conflict(int pos1,int pos2, ArrayList<Piece> pions){
+    public boolean conflict(int pos1,int pos2, ArrayList<Piece> pions){ //verifie si un pion de la liste occupe deja la case repérée par les positions pos1 et pos2 
         Iterator<Piece> it = pions.iterator();
-        while (it.hasNext()){
+        while (it.hasNext()){       //on parcourt la liste des pions
             Piece pawn = it.next();
-            if (pawn.position[0]==pos1 && pawn.position[1]==pos2){
-                return true;
+            if (pawn.position[0]==pos1 && pawn.position[1]==pos2){ //Si un des pions de la liste a les memes coordonnées
+                return true;    //alors il y a conflit
             }
         }
-        return false;
+        return false; //sinon laplace est libre
     }
 }

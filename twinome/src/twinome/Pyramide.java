@@ -28,6 +28,10 @@ public class Pyramide extends Piece{
     
     @Override
     public ArrayList<Integer[]> radar(ArrayList<Piece> pionsr, ArrayList<Piece> pionsv){
+
+        //renvoie la liste des cases ou le pion peut aller
+        // meme principe que pour le cube, seul les cases testées changent
+        
         if (color.equals("rouge")){
             samecol = (ArrayList<Piece>) pionsr.clone();
         }
