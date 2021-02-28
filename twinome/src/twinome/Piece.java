@@ -19,6 +19,7 @@ public class Piece {
     protected boolean frozen; 
     public Integer[] position;
     public String color;
+    public boolean jok = false;
 
     public  Piece(boolean health, boolean fix, Integer[] pos, String team){
         isDead = health; frozen = fix; position = pos.clone() ; setColor(team);
@@ -40,13 +41,16 @@ public class Piece {
         isDead = true;
     }
 
+    public void joker(ArrayList<Piece> pions){
+    }
+
     public void cirle(){
         //dessiner un cercle autour du pion
     }
    
     public void movesEnd(Integer[] newpos){
         position= newpos.clone();
-        if ((getColor().equals("rouge") && position[1]==1 && 4<position[0] && position[0]<8) || (getColor().equals("vert") && position[1]==11 && 4<position[0] && position[0]<8))
+        if ((getColor().equals("rouge") && position[0]==11 && 4<position[1] && position[1]<8) || (getColor().equals("vert") && position[0]==1 && 4<position[1] && position[1]<8))
             frozen = true;
     }
 
@@ -55,11 +59,11 @@ public class Piece {
         return new ArrayList<>();
     }
     
-    public boolean conflict(int p1,int p2, ArrayList<Piece> pions){
+    public boolean conflict(int pos1,int pos2, ArrayList<Piece> pions){
         Iterator<Piece> it = pions.iterator();
         while (it.hasNext()){
             Piece pawn = it.next();
-            if (pawn.position[0]==p1 && pawn.position[1]==p2){
+            if (pawn.position[0]==pos1 && pawn.position[1]==pos2){
                 return true;
             }
         }
