@@ -1,7 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/*TPAA trinome
+Mathis Adde
+Clarisse Béarn
  */
 package app;
 
@@ -33,8 +32,8 @@ public class Piece {
     public void joker(ArrayList<Piece> pions){ //pour pouvoir appeler joker sur toutes les pieces, meme si dans les fait seule le joker() des cubes speciaux nous interesse
     }
    
-    public void movesEnd(Integer[] newpos){ //sert a actualiser la position du point apres avoir selectionné la destination, et a changer le caractere figé des pieces selon leur position apres le deplacement
-        position= newpos.clone();
+    public void movesEnd(Integer[] newpos){ //sert a actualiser la position du point apres avoir selectionné la destination,  
+        position= newpos.clone();           //et a changer le caractere figé des pieces selon leur position apres le deplacement
         if ((getColor().equals("rouge") && position[0]==11 && 4<position[1] && position[1]<8) ||   //conditions pour les rouges
             (getColor().equals("vert")  && position[0]==1  && 4<position[1] && position[1]<8))     //conditions pour les verts
             frozen = true;
