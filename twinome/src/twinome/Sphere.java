@@ -10,17 +10,14 @@
  *
  * @author Utilisateur
  */
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Sphere extends Piece {
-    private String sprite;
     private ArrayList<Piece> sameCoL;
     private ArrayList<Piece> otherCol;
 
-    public Sphere(boolean health, boolean fix, Integer[] pos, String team){
-        super(health, fix, pos, team);
-        sprite = "sphere.png";//ou un truc du genre
+    public Sphere(boolean fix, Integer[] pos, String team, boolean j){
+        super(fix, pos, team,j);
     }
 
     @Override

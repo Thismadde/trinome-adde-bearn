@@ -14,17 +14,16 @@ import java.util.ArrayList;
 
 public class SphereSpe extends Sphere {
 
-    private String sprite;
     private ArrayList<Piece> sameCoL;
     private ArrayList<Piece> otherCol;
 
-    public SphereSpe(boolean health, boolean fix, Integer[] pos, String team){
-        super(health, fix, pos, team);
+    public SphereSpe(boolean fix, Integer[] pos, String team, boolean j){
+        super(fix, pos, team,j);
     }
     
     @Override
     public String getType(){
-        return "Pyramide S ";
+        return "Sphere S ";
     }
 
     @Override

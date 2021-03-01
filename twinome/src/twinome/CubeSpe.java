@@ -14,8 +14,8 @@ import java.util.ArrayList;
  */
 public class CubeSpe extends Cube{
 
-    public CubeSpe(boolean health, boolean fix, Integer[] pos, String team){
-        super(health, fix, pos, team);
+    public CubeSpe(boolean fix, Integer[] pos, String team, boolean j){
+        super(fix, pos, team,j);
     }
 
     @Override
@@ -23,6 +23,7 @@ public class CubeSpe extends Cube{
         return "Cube S ";
     }
 
+    @Override
     public void joker(ArrayList<Piece> pions){
         //pour activer le joker des cubes speciaux 
 

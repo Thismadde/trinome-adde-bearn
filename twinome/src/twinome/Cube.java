@@ -12,14 +12,13 @@
  */
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 
 public class Cube extends Piece {
     
     private ArrayList<Piece> sameCol;
 
-    public Cube(boolean health, boolean fix, Integer[] pos, String team){
-        super(health, fix, pos, team);
+    public Cube( boolean fix, Integer[] pos, String team, boolean j){
+        super(fix, pos, team,j);
     }
     
     public String getType(){

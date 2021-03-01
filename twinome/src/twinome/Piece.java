@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Iterator;
 
 /*
@@ -15,14 +14,13 @@ import java.util.Iterator;
  * @author Utilisateur
  */
 public class Piece {
-    private boolean isDead;
     protected boolean frozen; 
     public Integer[] position;
     public String color;
     public boolean jok = false;
 
-    public  Piece(boolean health, boolean fix, Integer[] pos, String team){
-        isDead = health; frozen = fix; position = pos.clone() ; color = team;
+    public  Piece(boolean fix, Integer[] pos, String team, boolean j){
+        frozen = fix; position = pos.clone() ; color = team; jok = j;
     }
 
     public String getColor() {

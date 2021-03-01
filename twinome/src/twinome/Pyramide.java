@@ -16,8 +16,8 @@ public class Pyramide extends Piece{
     private String sprite;
     private ArrayList<Piece> samecol;
 
-    public Pyramide(boolean health, boolean fix, Integer[] pos, String team){
-        super(health, fix, pos, team);
+    public Pyramide( boolean fix, Integer[] pos, String team, boolean j){
+        super( fix, pos, team,j);
         sprite = "pyramide.png";//ou un truc du genre
     }
 

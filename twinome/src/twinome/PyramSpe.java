@@ -17,8 +17,8 @@ public class PyramSpe extends Pyramide{
     private ArrayList<Piece> samecol;
     private ArrayList<Piece> othercol;
 
-    public PyramSpe(boolean health, boolean fix, Integer[] pos, String team){
-        super(health, fix, pos, team);
+    public PyramSpe(  boolean fix, Integer[] pos, String team, boolean j){
+        super(fix, pos, team,j);
     }
 @Override
     public String getType(){

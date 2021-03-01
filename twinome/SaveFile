@@ -1,0 +1,3 @@
+Cube ,4,1,false,false;Cube ,1,3,false,false;Cube ,1,9,false,false;Cube ,2,10,false,false;Cube ,3,11,false,false;Sphere ,1,5,false,false;Sphere ,1,7,false,false;Pyramide ,1,1,false,false;Pyramide ,1,2,false,false;Pyramide ,2,1,false,false;Pyramide ,1,10,false,false;Pyramide ,2,11,false,false;Cube S ,2,2,false,true;Pyramide S ,1,11,false,false;Sphere S ,1,6,false,false;
+Cube ,9,1,false,false;Cube ,11,3,false,false;Cube ,11,9,false,false;Cube ,10,10,false,false;Cube ,9,11,false,false;Sphere ,11,5,false,false;Sphere ,11,7,false,false;Pyramide ,11,1,false,false;Pyramide ,11,2,false,false;Pyramide ,10,1,false,false;Pyramide ,10,11,false,false;Pyramide ,11,10,false,false;Cube S ,10,2,false,true;Pyramide S ,11,11,false,false;Sphere S ,11,6,false,false;
+0
