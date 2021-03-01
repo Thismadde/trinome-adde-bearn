@@ -49,9 +49,9 @@ public class Twinome {
             }
             System.out.println("taper les coordonnées de destination"); 
             try {
-                newpos = possib.get(sc.nextInt()-1);
+                newpos = possib.get(sc.nextInt()-1); //on selectionne les coordonnées souhaitées
                 
-            } catch (Exception e) {
+            } catch (Exception e) { //si l'indice entré est incorrecte
                 System.out.println("Position non valide!");
                 continue;
             }   

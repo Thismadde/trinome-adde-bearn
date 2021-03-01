@@ -301,7 +301,7 @@ public class Plateau {
                 fich.close();
                 
             } catch (Exception e) {
-                //TODO: handle exception
+                System.out.println("echec sauvegarde, tant pis!");
             }
     }
 
