@@ -42,36 +42,34 @@ public class Twinome {
                 System.out.println("pion non bougeable");
                 continue; //on recommence le tour
             }
+            int i = 1;
             for (Integer[] ui: possib){ //si il y a des cases on affiche leur coordonnées
-                System.out.println(Arrays.toString(ui));
+                System.out.println(Arrays.toString(ui)+i);
+                i++;
             }
-            System.out.println("taper les coordonnées de destination");    
-            newpos[0] = sc.nextInt(); //on saisit les coordonnees souhaitées une a une
-            newpos[1] = sc.nextInt();
-            boolean z = true; //tant que le pion n'est pas deplacer
-            for (Integer[] possibI: possib){
-                if (possibI[0] == newpos[0] && possibI[1]==newpos[1]){ //on parcourt toutes les possibilités presentées pour valider que les données saisies sont autorisées
-                    //si on a une pyramide speciale, il arrive qu'elles saute au dessus d'un point. pour le supprimer, il faut passer par sa case, donc on fait:
-                    try {
-                        if (p.getType().equals("Pyramide S ")){
-                            Integer[] a = {(p.position[0]+newpos[0])/2,(p.position[1]+newpos[1])/2}; 
-                            plato.movePawn(p,a, tour); //deplacement intermediaire
-                        }
-                    } catch (Exception e) {
-                    }
-                    plato.movePawn(p, newpos, tour); //on bouge le pion
-                    z = false;
+            System.out.println("taper les coordonnées de destination"); 
+            try {
+                newpos = possib.get(sc.nextInt()-1);
+                
+            } catch (Exception e) {
+                System.out.println("Position non valide!");
+                continue;
+            }   
+            try {
+                if (p.getType().equals("Pyramide S ")){
+                    Integer[] a = {(p.position[0]+newpos[0])/2,(p.position[1]+newpos[1])/2}; 
+                    plato.movePawn(p,a, tour); //deplacement intermediaire pour les pyramides speciales
                 }
-            }
+            } catch (Exception e) {}
+
+            plato.movePawn(p, newpos, tour); //on bouge le pion
+            
+            
             for (Piece pjok: plato.pionsr){ //seuls les cubes speciaux verifient vraiment quelque chose ici
                 pjok.joker(plato.pionsr);
             }
             for (Piece pjok: plato.pionsv){//pour les cubes speciaux verts
                 pjok.joker(plato.pionsv);
-            }
-            if(z){//si les positions données sont invalides
-                System.out.println("Position non valide!");
-                continue;//on recommence sans changer le tour
             }
             if(plato.endGame()){
                 System.out.println("Le gagnant est : "+p.getColor());
