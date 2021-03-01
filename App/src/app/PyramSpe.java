@@ -5,62 +5,84 @@
  */
 package app;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
+
 
 /**
  *
- * @author clary
+ * @author utilisateur
  */
 public class PyramSpe extends Pyramide{
-        public PyramSpe(boolean health, boolean fix, int[] pos, String team) {
-        super(health, fix, pos, team);
+    private ArrayList<Piece> samecol;
+    private ArrayList<Piece> othercol;
+
+    public PyramSpe(  boolean fix, Integer[] pos, String team, boolean j){
+        super(fix, pos, team,j);
     }
-  
+@Override
+    public String getType(){
+        return "Pyramide S ";
+    }
+
     @Override
-    public void radar(Joueur j){
-        LinkedList<int[]> zbleh = new LinkedList<>();
+    public ArrayList<Integer[]> radar(ArrayList<Piece> pionsr, ArrayList<Piece> pionsv){ 
+
+        //de meme que pour pyramide
+
+        if (color.equals("rouge")){
+            samecol = (ArrayList<Piece>) pionsr.clone();
+            othercol = (ArrayList<Piece>) pionsv.clone();
+        }
+        else if (color.equals("vert")){
+            samecol = (ArrayList<Piece>) pionsv.clone();
+            othercol  = (ArrayList<Piece>) pionsr.clone();
+        } 
+
+        ArrayList<Integer[]> zbleh = new ArrayList<>();
         
+        //-1 -1
+        if(!conflict(position[0]-1,position[1]-1, samecol) && (0<position[0]-1) && (0<position[1]-1)){
+            Integer[] npos = {position[0]-1,position[1]-1};
+            zbleh.add(npos);
+        }
         //-1 +1
-//        if(!selfConflict(position[0]-1,position[1]+1, j)){
-//            int[] npos = {position[0]-1,position[1]+1};
-//            zbleh.add(npos);
-//       }
-//        //-1 -1
-//        if(!selfConflict(position[0]-1,position[1]-1, j)){
-//            int[] npos = {position[0]-1,position[1]-1};
-//            zbleh.add(npos);
-//        }
-//        //+1 +1
-//        if(!selfConflict(position[0]+1,position[1]+1, j)){
-//            int[] npos = {position[0]+1,position[1]+1};
-//            zbleh.add(npos);
-//        }
-//        //+1 -1
-//        if(!selfConflict(position[0]+1,position[1]-1, j)){
-//            int[] npos = {position[0]+1,position[1]-1};
-//            zbleh.add(npos);
-//        }
-        
-        //-2 -2
-        if(selfConflict(position[0]-1,position[1]-1, j)){
-            int[] npos = {position[0]-2,position[1]-2};
+        if(!conflict(position[0]-1,position[1]+1, samecol) && (0<position[0]-1) && (position[1]+1<12)){
+            Integer[] npos = {position[0]-1,position[1]+1};
             zbleh.add(npos);
         }
-        //-2 +2
-        if(selfConflict(position[0]-1,position[1]+1, j)){
-            int[] npos = {position[0]-2,position[1]+2};
+        //+1 +1
+        if(!conflict(position[0]+1,position[1]+1, samecol) && (position[0]+1<12) && (position[1]+1<12)){
+            Integer[] npos = {position[0]+1,position[1]+1};
             zbleh.add(npos);
         }
-        //+2 +2
-        if(selfConflict(position[0]+1,position[1]+1, j)){
-            int[] npos = {position[0]+2,position[1]+2};
+        //+1 -1
+        if(!conflict(position[0]+1,position[1]-1, samecol) && (position[0]+1<12) && (0<position[1]-1)){
+            Integer[] npos = {position[0]+1,position[1]-1};
             zbleh.add(npos);
         }
-        //+2 -2
-        if(selfConflict(position[0]+1,position[1]-1, j)){
-            int[] npos = {position[0]+2,position[1]-2};
-            zbleh.add(npos);
+
+        //-2 -2                                                                                             
+        if(conflict(position[0]-1,position[1]-1, othercol) && (0<position[0]-2) && (0<position[1]-2) && !conflict(position[0]-2,position[1]-2, samecol) && !conflict(position[0]-2,position[1]-2, othercol)) {  //
+            Integer[] npos = {position[0]-2,position[1]-2};                                                                                                     //
+            zbleh.add(npos);                                                                                                                                    //
+        }                                                                                                                                                       //
+        //-2 +2                                                                                                                                                 //
+        if(conflict(position[0]-1,position[1]+1, othercol) && (0<position[0]-2) && (position[1]+2<12) && !conflict(position[0]-2,position[1]+2, samecol)&& !conflict(position[0]-2,position[1]+2, othercol)) {  //
+            Integer[] npos = {position[0]-2,position[1]+2};                                                                                                     //
+            zbleh.add(npos);                                                                                                                                    //
+        }                                                                                                                                                       //ici on verifie si il y a bien un ennemi a 1 case de distance, et si la case suivante est libre
+        //+2 +2                                                                                                                                                 //
+        if(conflict(position[0]+1,position[1]+1, othercol) && (position[0]+2<12) && (position[1]+1<2) && !conflict(position[0]+2,position[1]+2, samecol)&& !conflict(position[0]+2,position[1]+2, othercol))  { //
+            Integer[] npos = {position[0]+2,position[1]+2};                                                                                                     //
+            zbleh.add(npos);                                                                                                                                    //
+        }                                                                                                                                                       //
+        //+2 -2                                                                                                                                                 //
+        if(conflict(position[0]+1,position[1]-1, othercol) && (position[0]+2<12) && (0<position[1]-2) && !conflict(position[0]+2,position[1]-2, samecol) && !conflict(position[0]+2,position[1]-2, othercol)) {  //
+            Integer[] npos = {position[0]+2,position[1]-2};                                                                                                     //
+            zbleh.add(npos);                                                                                                                                    //
         }
-        
+    
+        return zbleh;
     }
+
 }

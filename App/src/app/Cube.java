@@ -7,48 +7,62 @@ package app;
 
 /**
  *
- * @author clary
+ * @author utilisateur
  */
-import java.util.LinkedList;
+import java.util.ArrayList;
+
 
 public class Cube extends Piece {
     
-    private String sprite;
+    private ArrayList<Piece> sameCol;
 
-    public Cube(boolean health, boolean fix, int[] pos, String team){
-        super(health, fix, pos, team);
-        sprite = "cube.png";//ou un truc du genre
+    public Cube( boolean fix, Integer[] pos, String team, boolean j){
+        super(fix, pos, team,j);
     }
     
+    public String getType(){
+        return "Cube ";
+    }
 
-      public void radar(Joueur j){
-        LinkedList<int[]> zbleh = new LinkedList<>();
-        
-        //-1 0
-        if(!selfConflict(position[0]-1,position[1], j)){
-            int[] npos = {position[0]-1,position[1]};
+    @Override
+    public ArrayList<Integer[]> radar(ArrayList<Piece> pionsr, ArrayList<Piece> pionsv){
+
+        // renvoie les cases ou le pion peut aller
+
+
+        if (color.equals("rouge")){                                 //
+            sameCol = (ArrayList<Piece>) pionsr.clone();            //
+        }                                                           // selon la couleur du pion, on etudiera une liste differente
+        else if (color.equals("vert")){                             //
+            sameCol = (ArrayList<Piece>) pionsv.clone();            //
+        } 
+
+        ArrayList<Integer[]> zbleh = new ArrayList<>();   //liste des cases atteignables disponibles
+
+        //-1 0    <= deplacement testé sur lase de coordonnées [x-1,y]
+        if(!conflict(position[0]-1,position[1], sameCol) && (0<position[0]-1)){
+            Integer[] npos = {position[0]-1,position[1]};
             zbleh.add(npos);
         }
         //0 +1
-        if(!selfConflict(position[0],position[1]+1, j)){
-            int[] npos = {position[0],position[1]+1};
+        if(!conflict(position[0],position[1]+1, sameCol) && (position[1]+1<12)){
+            Integer[] npos = {position[0],position[1]+1};
             zbleh.add(npos);
         }
         //+1 0
-        if(!selfConflict(position[0]+1,position[1], j)){
-            int[] npos = {position[0]+1,position[1]};
+        if(!conflict(position[0]+1,position[1], sameCol) && (position[0]+1<12)){
+            Integer[] npos = {position[0]+1,position[1]};
             zbleh.add(npos);
         }
         //0 -1
-        if(!selfConflict(position[0],position[1]-1, j)){
-            int[] npos = {position[0],position[1]-1};
+        if(!conflict(position[0],position[1]-1, sameCol) && (0<position[1]-1)){
+            Integer[] npos = {position[0],position[1]-1};
             zbleh.add(npos);
         }
-    
+        return zbleh;
     }
 
-    public void blit(){
+    public void blit(){ //pour l'interface graphique peut-etre
         
     }
 }
-
