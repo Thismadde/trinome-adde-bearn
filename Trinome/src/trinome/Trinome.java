@@ -1,13 +1,19 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package trinome;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Scanner;   
+import java.util.Scanner;  
 
-//package twinome;
 /**
  *
  * @author Utilisateur
  */
-public class Twinome {
+public class Trinome {
+ 
     
     public static void main(String[] args) {
         
@@ -21,10 +27,10 @@ public class Twinome {
             System.out.println("Quelle partie créer? Normale(N) ou spéciale(S)?");
             plato.newGame(sc.next().equals("S")); //on choisit pions speciaux ou non et on remplit le plateau en fonction
             tour = 1; //1 pour rouge, 0 pour vert, rouge commence
-        }   
-        boolean play =true;
-        Integer[] newpos = new Integer[2];   //nouvelle postion a chaque tour
-        do{
+           }   
+           boolean play =true;
+           Integer[] newpos = new Integer[2];   //nouvelle postion a chaque tour
+           do{
             plato.blitMatrix(); //on affiche le plateau
             Piece p = plato.selectPawn(tour,sc); //le joueur choisit le pion qu'il veut deplacer
             ArrayList<Integer[]> possib = p.radar(plato.pionsr, plato.pionsv);//on affiche les cases de destination disponibles
@@ -74,3 +80,4 @@ public class Twinome {
     }
 
 }
+

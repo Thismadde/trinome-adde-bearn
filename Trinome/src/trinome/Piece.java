@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.Iterator;
+
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -7,8 +6,9 @@ import java.util.Iterator;
  * and open the template in the editor.
  */
 
-//package twinome;
-
+package trinome;
+import java.util.ArrayList;
+import java.util.Iterator;
 /**
  *
  * @author Utilisateur

@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -6,8 +6,8 @@ import java.util.ArrayList;
  * and open the template in the editor.
  */
 
-//package twinome;
-
+package trinome;
+import java.util.ArrayList;
 /**
  *
  * @author Utilisateur
