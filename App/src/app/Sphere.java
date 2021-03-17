@@ -1,7 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/*TPAA trinome
+Mathis Adde
+Clarisse Béarn
  */
 package app;
 
@@ -9,9 +8,8 @@ package app;
  *
  * @author utilisateur
  */
-import java.util.Iterator;
+
 import java.util.ArrayList;
-import java.util.List;
 
 public class Sphere extends Piece {
     
@@ -35,8 +33,8 @@ public class Sphere extends Piece {
 
  
 
-        if (color.equals("rouge")){                                             //selon la couleur du pion on attribue aux deux listes pionsr et pionsv des noms differents (on les clone sous des noms differents en fait)
-            sameCoL = (ArrayList<Piece>) pionsr.clone();                        //et apres relecture je me rend compte que ca ne sert a rien, genre vraiment on fait la meme chose aux deux...
+        if (color.equals("rouge")){                        //selon la couleur du pion on attribue aux deux listes pionsr et pionsv des noms differents (on les clone sous des noms differents en fait)
+            sameCoL = (ArrayList<Piece>) pionsr.clone();   //et apres relecture je me rend compte que ca ne sert a rien, genre vraiment on fait la meme chose aux deux...
             otherCol = (ArrayList<Piece>) pionsv.clone();
         }
         else if (color.equals("vert")){

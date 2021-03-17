@@ -1,7 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/*TPAA trinome
+Mathis Adde
+Clarisse Béarn
  */
 package app;
 
@@ -155,7 +154,8 @@ public class Plateau {
         
     }
 
-    public void newGame(boolean type){ //fonction qui place les pions a des endroits predeterminés; la fonction chargement de sauvegarde a venir fera pareil, mais avec comme argument pour les pieces ce qu'il y aura dans le doc txt
+    public void newGame(boolean type){ //fonction qui place les pions a des endroits predeterminés; 
+                                       //la fonction chargement de sauvegarde a venir fera pareil, mais avec comme argument pour les pieces ce qu'il y aura dans le doc txt
 
         Cube p = new Cube(false, new Integer[] {3,1}, "rouge",false);
         pionsr.add(p);
