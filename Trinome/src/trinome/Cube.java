@@ -19,9 +19,9 @@ public class Cube extends Piece {
 	public Cube(boolean fix, Integer[] pos, String team, boolean j) {
 		super(fix, pos, team, j);
 		if (team == "vert") {
-			sprite = new ImageIcon("C:\\Users\\Utilisateur\\OneDrive\\Documents\\GitHub\\tritri\\trinome-adde-bearn\\Trinome\\recherche sprites\\cubeV.png");
+			sprite = new javax.swing.ImageIcon(getClass().getResource("/pfiches/recherche sprites/cubeV.png"));
 		} else if (team == "rouge") {
-			sprite = new ImageIcon("C:\\Users\\Utilisateur\\OneDrive\\Documents\\GitHub\\tritri\\trinome-adde-bearn\\Trinome\\recherche sprites\\cubeR.png");
+			sprite = new javax.swing.ImageIcon(getClass().getResource("/pfiches/recherche sprites/cubeR.png"));
 		}
 	}
 

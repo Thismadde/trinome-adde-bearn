@@ -20,9 +20,9 @@ public class SphereSpe extends Sphere {
 	public SphereSpe(boolean fix, Integer[] pos, String team, boolean j) {
 		super(fix, pos, team, j);
 		if (team == "vert") {
-			sprite = new ImageIcon("C:\\Users\\Utilisateur\\OneDrive\\Documents\\GitHub\\tritri\\trinome-adde-bearn\\Trinome\\recherche sprites\\demispVs.png");
+			sprite = new javax.swing.ImageIcon(getClass().getResource("/pfiches/recherche sprites/demispVs.png"));
 		} else if (team == "rouge") {
-			sprite = new ImageIcon("C:\\Users\\Utilisateur\\OneDrive\\Documents\\GitHub\\tritri\\trinome-adde-bearn\\Trinome\\recherche sprites\\demispRs.png");
+			sprite = new javax.swing.ImageIcon(getClass().getResource("/pfiches/recherche sprites/demispRs.png"));
 		}
 	}
 

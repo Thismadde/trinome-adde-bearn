@@ -19,9 +19,9 @@ public class Pyramide extends Piece {
 	public Pyramide(boolean fix, Integer[] pos, String team, boolean j) {
 		super(fix, pos, team, j);
 		if (team == "vert") {
-			sprite = new ImageIcon("C:\\Users\\Utilisateur\\OneDrive\\Documents\\GitHub\\tritri\\trinome-adde-bearn\\Trinome\\recherche sprites\\pyraV.png");
+			sprite = new javax.swing.ImageIcon(getClass().getResource("/pfiches/recherche sprites/pyraV.png"));
 		} else if (team == "rouge") {
-			sprite = new ImageIcon("C:\\Users\\Utilisateur\\OneDrive\\Documents\\GitHub\\tritri\\trinome-adde-bearn\\Trinome\\recherche sprites\\pyraR.png");
+			sprite = new javax.swing.ImageIcon(getClass().getResource("/pfiches/recherche sprites/pyraR.png"));
 		}
 	}
 

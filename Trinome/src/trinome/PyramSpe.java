@@ -20,9 +20,9 @@ public class PyramSpe extends Pyramide {
 	public PyramSpe(boolean fix, Integer[] pos, String team, boolean j) {
 		super(fix, pos, team, j);
 		if (team == "vert") {
-			sprite = new ImageIcon("C:\\Users\\Utilisateur\\OneDrive\\Documents\\GitHub\\tritri\\trinome-adde-bearn\\Trinome\\recherche sprites\\pyraVs.png");
+			sprite = new javax.swing.ImageIcon(getClass().getResource("/pfiches/recherche sprites/pyraVs.png"));
 		} else if (team == "rouge") {
-			sprite = new ImageIcon("C:\\Users\\Utilisateur\\OneDrive\\Documents\\GitHub\\tritri\\trinome-adde-bearn\\Trinome\\recherche sprites\\pyraRs.png");
+			sprite = new javax.swing.ImageIcon(getClass().getResource("/pfiches/recherche sprites/pyraRs.png"));
 		}
 	}
 

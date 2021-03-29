@@ -1039,7 +1039,7 @@ public class FJeu extends javax.swing.JDialog {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/trinome/iconecran.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pfiches/recherche sprites/iconecran.png"))); // NOI18N
         jLabel1.setText("Partie en cours ");
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 

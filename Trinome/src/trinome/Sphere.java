@@ -20,9 +20,9 @@ public class Sphere extends Piece {
 	public Sphere(boolean fix, Integer[] pos, String team, boolean j) {
 		super(fix, pos, team, j);
 		if (team == "vert") {
-			sprite = new ImageIcon("C:\\Users\\Utilisateur\\OneDrive\\Documents\\GitHub\\tritri\\trinome-adde-bearn\\Trinome\\recherche sprites\\demispV.png");
+			sprite = new javax.swing.ImageIcon(getClass().getResource("/pfiches/recherche sprites/demispV.png"));
 		} else if (team == "rouge") {
-			sprite = new ImageIcon("C:\\Users\\Utilisateur\\OneDrive\\Documents\\GitHub\\tritri\\trinome-adde-bearn\\Trinome\\recherche sprites\\demispR.png");
+			sprite = new javax.swing.ImageIcon(getClass().getResource("/pfiches/recherche sprites/demispR.png"));
 		}
 	}
 
