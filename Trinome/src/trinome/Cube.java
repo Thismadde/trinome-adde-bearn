@@ -3,68 +3,70 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package trinome;
 
 /**
  *
  * @author Utilisateur
  */
-
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 
 public class Cube extends Piece {
-    
-    private ArrayList<Piece> sameCol;
 
-    public Cube( boolean fix, Integer[] pos, String team, boolean j){
-        super(fix, pos, team,j);
-    }
-    
-    @Override
-    public String getType(){
-        return "Cube ";
-    }
+	private ArrayList<Piece> sameCol;
 
-    @Override
-    public ArrayList<Integer[]> radar(ArrayList<Piece> pionsr, ArrayList<Piece> pionsv){
+	public Cube(boolean fix, Integer[] pos, String team, boolean j) {
+		super(fix, pos, team, j);
+		if (team == "vert") {
+			sprite = new ImageIcon("C:\\Users\\Utilisateur\\OneDrive\\Documents\\GitHub\\tritri\\trinome-adde-bearn\\Trinome\\recherche sprites\\cubeV.png");
+		} else if (team == "rouge") {
+			sprite = new ImageIcon("C:\\Users\\Utilisateur\\OneDrive\\Documents\\GitHub\\tritri\\trinome-adde-bearn\\Trinome\\recherche sprites\\cubeR.png");
+		}
+	}
 
-        // renvoie les cases ou le pion peut aller
+	@Override
+	public String getType() {
+		return "Cube ";
+	}
 
+	@Override
+	public ArrayList<Integer[]> radar(ArrayList<Piece> pionsr, ArrayList<Piece> pionsv) {
 
-        if (color.equals("rouge")){                                 //
-            sameCol = (ArrayList<Piece>) pionsr.clone();            //
-        }                                                           // selon la couleur du pion, on etudiera 
-        else if (color.equals("vert")){                             // une liste differente
-            sameCol = (ArrayList<Piece>) pionsv.clone();            //
-        } 
+		// renvoie les cases ou le pion peut aller
+		if (color.equals("rouge")) {                                 //
+			sameCol = (ArrayList<Piece>) pionsr.clone();            //
+		} // selon la couleur du pion, on etudiera 
+		else if (color.equals("vert")) {                             // une liste differente
+			sameCol = (ArrayList<Piece>) pionsv.clone();            //
+		}
 
-        ArrayList<Integer[]> zbleh = new ArrayList<>();   //liste des cases atteignables disponibles
+		ArrayList<Integer[]> zbleh = new ArrayList<>();   //liste des cases atteignables disponibles
 
-        //-1 0    <= deplacement testé sur lase de coordonnées [x-1,y]
-        if(!conflict(position[0]-1,position[1], sameCol) && (0<position[0]-1)){
-            Integer[] npos = {position[0]-1,position[1]};
-            zbleh.add(npos);
-        }
-        //0 +1
-        if(!conflict(position[0],position[1]+1, sameCol) && (position[1]+1<12)){
-            Integer[] npos = {position[0],position[1]+1};
-            zbleh.add(npos);
-        }
-        //+1 0
-        if(!conflict(position[0]+1,position[1], sameCol) && (position[0]+1<12)){
-            Integer[] npos = {position[0]+1,position[1]};
-            zbleh.add(npos);
-        }
-        //0 -1
-        if(!conflict(position[0],position[1]-1, sameCol) && (0<position[1]-1)){
-            Integer[] npos = {position[0],position[1]-1};
-            zbleh.add(npos);
-        }
-        return zbleh;
-    }
+		//-1 0    <= deplacement testé sur lase de coordonnées [x-1,y]
+		if (!conflict(position[0] - 1, position[1], sameCol) && (0 < position[0] - 1)) {
+			Integer[] npos = {position[0] - 1, position[1]};
+			zbleh.add(npos);
+		}
+		//0 +1
+		if (!conflict(position[0], position[1] + 1, sameCol) && (position[1] + 1 < 12)) {
+			Integer[] npos = {position[0], position[1] + 1};
+			zbleh.add(npos);
+		}
+		//+1 0
+		if (!conflict(position[0] + 1, position[1], sameCol) && (position[0] + 1 < 12)) {
+			Integer[] npos = {position[0] + 1, position[1]};
+			zbleh.add(npos);
+		}
+		//0 -1
+		if (!conflict(position[0], position[1] - 1, sameCol) && (0 < position[1] - 1)) {
+			Integer[] npos = {position[0], position[1] - 1};
+			zbleh.add(npos);
+		}
+		return zbleh;
+	}
 
-    public void blit(){ //pour l'interface graphique peut-etre
-        
-    }
+	public void blit() { //pour l'interface graphique peut-etre
+
+	}
 }
