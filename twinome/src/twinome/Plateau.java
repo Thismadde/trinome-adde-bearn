@@ -286,11 +286,11 @@ public class Plateau {
 
     }
 
-    public void save(int tour){
+    public void save(int tour, String pseudo1,String pseudo2){
         Iterator<Piece> it = pionsr.iterator();
         Iterator<Piece> it2 = pionsv.iterator();
         try {
-                FileWriter fich = new FileWriter("SaveFile");
+                FileWriter fich = new FileWriter("SaveFile"+pseudo1+pseudo2);
                 while (it.hasNext()){
                     Piece p = it.next();
                     fich.write(p.getType()+","+p.position[0]+","+p.position[1]+","+Boolean.toString(p.frozen)+","+Boolean.toString(p.jok)+";");
@@ -308,9 +308,9 @@ public class Plateau {
             }
     }
 
-    public int reload(){
+    public int reload(String pseudo1,String pseudo2){
         try {
-            BufferedReader br = new BufferedReader(new FileReader("SaveFile"));
+            BufferedReader br = new BufferedReader(new FileReader("SaveFile"+pseudo1+pseudo2));
             String ligne = br.readLine();
             String c= "rouge";
             while(ligne!=null){
