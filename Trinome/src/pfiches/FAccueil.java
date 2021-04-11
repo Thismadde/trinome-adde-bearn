@@ -56,19 +56,19 @@ public class FAccueil extends javax.swing.JFrame {
 
         lNom.setBackground(new java.awt.Color(204, 204, 204));
         lNom.setForeground(new java.awt.Color(51, 0, 51));
-        lNom.setText("Entrez vos pseudos");
+        lNom.setText("Entrez vos pseudos ( ͠° ͟ʖ ͡°)");
         lNom.setOpaque(true);
 
         pBoutons.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        bJeu.setText("LANCER UNE PARTIE");
+        bJeu.setText("LANCER UNE PARTIE (>'-'<)");
         bJeu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bJeuActionPerformed(evt);
             }
         });
 
-        bBonjour.setText("CHARGER (peut-être héhé)");
+        bBonjour.setText("CHARGER ヾ(•ω•`)o");
         bBonjour.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bBonjourActionPerformed(evt);
@@ -76,7 +76,7 @@ public class FAccueil extends javax.swing.JFrame {
         });
 
         grpRadButt.add(jRadioN);
-        jRadioN.setText("NORMALE");
+        jRadioN.setText("NORMALE  :D");
         jRadioN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioNActionPerformed(evt);
@@ -84,7 +84,7 @@ public class FAccueil extends javax.swing.JFrame {
         });
 
         grpRadButt.add(jRadioS);
-        jRadioS.setText("SPECIALE");
+        jRadioS.setText("SPECIALE OwO");
         jRadioS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioSActionPerformed(evt);
@@ -96,22 +96,23 @@ public class FAccueil extends javax.swing.JFrame {
         pBoutonsLayout.setHorizontalGroup(
             pBoutonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pBoutonsLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addGroup(pBoutonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(jRadioS)
-                    .addComponent(jRadioN)
-                    .addComponent(bJeu, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap()
+                .addGroup(pBoutonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(bJeu, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pBoutonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jRadioN, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jRadioS, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(bBonjour, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addComponent(bBonjour, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pBoutonsLayout.setVerticalGroup(
             pBoutonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pBoutonsLayout.createSequentialGroup()
                 .addContainerGap(26, Short.MAX_VALUE)
-                .addGroup(pBoutonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bJeu, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bBonjour, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(pBoutonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(bBonjour, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(bJeu, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jRadioN)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -142,7 +143,7 @@ public class FAccueil extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(pBoutons, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lNom, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lNom, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(9, 9, 9)
                         .addComponent(tfNom, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(8, 8, 8)
@@ -184,7 +185,6 @@ public class FAccueil extends javax.swing.JFrame {
 
     private void bJeuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bJeuActionPerformed
 		// TODO add your handling code here:
-		var source = evt.getSource();
 		String type = "NORMALE";
 		Enumeration<AbstractButton> enu = grpRadButt.getElements();
 		while (enu.hasMoreElements()) {

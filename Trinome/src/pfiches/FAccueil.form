@@ -33,7 +33,7 @@
               <Group type="103" groupAlignment="2" attributes="0">
                   <Component id="pBoutons" alignment="2" min="-2" max="-2" attributes="0"/>
                   <Group type="102" alignment="2" attributes="0">
-                      <Component id="lNom" min="-2" pref="112" max="-2" attributes="0"/>
+                      <Component id="lNom" min="-2" pref="156" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                       <Component id="tfNom" min="-2" pref="78" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
@@ -84,7 +84,7 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="33" green="0" red="33" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Entrez vos pseudos"/>
+        <Property name="text" type="java.lang.String" value="Entrez vos pseudos ( &#x360;&#xb0; &#x35f;&#x296; &#x361;&#xb0;)"/>
         <Property name="opaque" type="boolean" value="true"/>
       </Properties>
     </Component>
@@ -101,15 +101,17 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="2" attributes="0">
-                      <Component id="jRadioS" alignment="2" min="-2" max="-2" attributes="0"/>
-                      <Component id="jRadioN" alignment="2" min="-2" max="-2" attributes="0"/>
-                      <Component id="bJeu" alignment="2" min="-2" pref="177" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="bJeu" min="-2" pref="185" max="-2" attributes="0"/>
+                      <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jRadioN" alignment="1" max="32767" attributes="0"/>
+                          <Component id="jRadioS" alignment="1" pref="149" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
-                  <Component id="bBonjour" min="-2" pref="177" max="-2" attributes="0"/>
-                  <EmptySpace pref="14" max="32767" attributes="0"/>
+                  <Component id="bBonjour" min="-2" pref="185" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -117,9 +119,9 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace pref="26" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="bJeu" alignment="3" min="-2" pref="58" max="-2" attributes="0"/>
-                      <Component id="bBonjour" alignment="3" min="-2" pref="58" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="bBonjour" max="32767" attributes="0"/>
+                      <Component id="bJeu" pref="58" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jRadioN" min="-2" max="-2" attributes="0"/>
@@ -133,7 +135,7 @@
       <SubComponents>
         <Component class="javax.swing.JButton" name="bJeu">
           <Properties>
-            <Property name="text" type="java.lang.String" value="LANCER UNE PARTIE"/>
+            <Property name="text" type="java.lang.String" value="LANCER UNE PARTIE (&gt;&apos;-&apos;&lt;)"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bJeuActionPerformed"/>
@@ -141,7 +143,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="bBonjour">
           <Properties>
-            <Property name="text" type="java.lang.String" value="CHARGER (peut-&#xea;tre h&#xe9;h&#xe9;)"/>
+            <Property name="text" type="java.lang.String" value="CHARGER &#x30fe;(&#x2022;&#x3c9;&#x2022;`)o"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bBonjourActionPerformed"/>
@@ -152,7 +154,7 @@
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
               <ComponentRef name="grpRadButt"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="NORMALE"/>
+            <Property name="text" type="java.lang.String" value="NORMALE  :D"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioNActionPerformed"/>
@@ -163,7 +165,7 @@
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
               <ComponentRef name="grpRadButt"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="SPECIALE"/>
+            <Property name="text" type="java.lang.String" value="SPECIALE OwO"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioSActionPerformed"/>

@@ -26,7 +26,7 @@ public class Plateau {
 	private boolean sfroze;
 	private String pseudo1;
 	private String pseudo2;
-	protected int tour = 0;
+	public int tour = 0;
 	public Integer[] oriPosi;
 	private Piece oriPawn;
 
@@ -144,120 +144,82 @@ public class Plateau {
 		}
 	}
 
-	public void blitMatrix() { // afficher le tableau sous forme de matrice dans la console
-
-		String[][] a = new String[11][11]; // on genere une nouvelle matrice a chaque fois,
-		// car quand on avait essaye de la mettre en parametre de classe on arrivait pas
-		// a la vider puis la reremplir,
-		// donc c'est plus simple comme ca on a une page vierge a chaque fois
-
-		Iterator<Piece> it = pionsr.iterator();
-		while (it.hasNext()) {// on remplit les cases correspondants aux coordonees des pions avec les infos
-			// necessaires pour les rouges...
-			Piece pion = it.next();
-			int x = pion.position[0];
-			int y = pion.position[1];
-			a[x - 1][y - 1] = pion.getType() + pion.getColor();
-		}
-
-		Iterator<Piece> it2 = pionsv.iterator(); // ...puis pour les verts
-		while (it2.hasNext()) {
-			Piece pion = it2.next();
-			int x = pion.position[0];
-			int y = pion.position[1];
-			a[x - 1][y - 1] = pion.getType() + pion.getColor();
-		}
-
-		// les cases non affectées par ces deux boucles restent a null
-		for (int i = 0; i < 11; i++) {
-			for (int j = 0; j < 11; j++) {// on parcourt chacune des cases de la matrice et on l'affiche
-				if (a[i][j] == null) {
-					System.out.print("      x       | ");
-				} else {
-					System.out.print(a[i][j] + " | ");
-				}
-			}
-			System.out.println(System.lineSeparator());
-		}
-
-	}
-
 	public void newGame(boolean type) { // fonction qui place les pions a des endroits predeterminés;
 
-		Cube p = new Cube(false, new Integer[]{3, 1}, "rouge", false);
+		Cube p = new Cube(false, new Integer[] { 3, 1 }, "rouge", false);
 		pionsr.add(p);
-		Cube p2 = new Cube(false, new Integer[]{1, 3}, "rouge", false);
+		Cube p2 = new Cube(false, new Integer[] { 1, 3 }, "rouge", false);
 		pionsr.add(p2);
-		Cube p3 = new Cube(false, new Integer[]{1, 9}, "rouge", false);
+		Cube p3 = new Cube(false, new Integer[] { 1, 9 }, "rouge", false);
 		pionsr.add(p3);
-		Cube p4 = new Cube(false, new Integer[]{2, 10}, "rouge", false);
+		Cube p4 = new Cube(false, new Integer[] { 2, 10 }, "rouge", false);
 		pionsr.add(p4);
-		Cube p5 = new Cube(false, new Integer[]{3, 11}, "rouge", false);
+		Cube p5 = new Cube(false, new Integer[] { 3, 11 }, "rouge", false);
 		pionsr.add(p5);
-		Sphere p7 = new Sphere(false, new Integer[]{1, 5}, "rouge", false);
+		Sphere p7 = new Sphere(false, new Integer[] { 1, 5 }, "rouge", false);
 		pionsr.add(p7);
-		Sphere p8 = new Sphere(false, new Integer[]{1, 7}, "rouge", false);
+		Sphere p8 = new Sphere(false, new Integer[] { 1, 7 }, "rouge", false);
 		pionsr.add(p8);
-		Pyramide p9 = new Pyramide(false, new Integer[]{1, 1}, "rouge", false);
+		Pyramide p9 = new Pyramide(false, new Integer[] { 1, 1 }, "rouge", false);
 		pionsr.add(p9);
-		Pyramide p10 = new Pyramide(false, new Integer[]{1, 2}, "rouge", false);
+		Pyramide p10 = new Pyramide(false, new Integer[] { 1, 2 }, "rouge", false);
 		pionsr.add(p10);
-		Pyramide p11 = new Pyramide(false, new Integer[]{2, 1}, "rouge", false);
+		Pyramide p11 = new Pyramide(false, new Integer[] { 2, 1 }, "rouge", false);
 		pionsr.add(p11);
-		Pyramide p12 = new Pyramide(false, new Integer[]{1, 10}, "rouge", false);
+		Pyramide p12 = new Pyramide(false, new Integer[] { 1, 10 }, "rouge", false);
 		pionsr.add(p12);
-		Pyramide p13 = new Pyramide(false, new Integer[]{2, 11}, "rouge", false);
+		Pyramide p13 = new Pyramide(false, new Integer[] { 2, 11 }, "rouge", false);
 		pionsr.add(p13);
 
-		Cube vp = new Cube(false, new Integer[]{9, 1}, "vert", false);
+		Cube vp = new Cube(false, new Integer[] { 9, 1 }, "vert", false);
 		pionsv.add(vp);
-		Cube vp2 = new Cube(false, new Integer[]{11, 3}, "vert", false);
+		Cube vp2 = new Cube(false, new Integer[] { 11, 3 }, "vert", false);
 		pionsv.add(vp2);
-		Cube vp3 = new Cube(false, new Integer[]{11, 9}, "vert", false);
+		Cube vp3 = new Cube(false, new Integer[] { 11, 9 }, "vert", false);
 		pionsv.add(vp3);
-		Cube vp4 = new Cube(false, new Integer[]{10, 10}, "vert", false);
+		Cube vp4 = new Cube(false, new Integer[] { 10, 10 }, "vert", false);
 		pionsv.add(vp4);
-		Cube vp5 = new Cube(false, new Integer[]{9, 11}, "vert", false);
+		Cube vp5 = new Cube(false, new Integer[] { 9, 11 }, "vert", false);
 		pionsv.add(vp5);
-		Sphere vp7 = new Sphere(false, new Integer[]{11, 5}, "vert", false);
+		Sphere vp7 = new Sphere(false, new Integer[] { 11, 5 }, "vert", false);
 		pionsv.add(vp7);
-		Sphere vp8 = new Sphere(false, new Integer[]{11, 7}, "vert", false);
+		Sphere vp8 = new Sphere(false, new Integer[] { 11, 7 }, "vert", false);
 		pionsv.add(vp8);
-		Pyramide vp9 = new Pyramide(false, new Integer[]{11, 1}, "vert", false);
+		Pyramide vp9 = new Pyramide(false, new Integer[] { 11, 1 }, "vert", false);
 		pionsv.add(vp9);
-		Pyramide vp10 = new Pyramide(false, new Integer[]{11, 2}, "vert", false);
+		Pyramide vp10 = new Pyramide(false, new Integer[] { 11, 2 }, "vert", false);
 		pionsv.add(vp10);
-		Pyramide vp11 = new Pyramide(false, new Integer[]{10, 1}, "vert", false);
+		Pyramide vp11 = new Pyramide(false, new Integer[] { 10, 1 }, "vert", false);
 		pionsv.add(vp11);
-		Pyramide vp12 = new Pyramide(false, new Integer[]{10, 11}, "vert", false);
+		Pyramide vp12 = new Pyramide(false, new Integer[] { 10, 11 }, "vert", false);
 		pionsv.add(vp12);
-		Pyramide vp13 = new Pyramide(false, new Integer[]{11, 10}, "vert", false);
+		Pyramide vp13 = new Pyramide(false, new Integer[] { 11, 10 }, "vert", false);
 		pionsv.add(vp13);
 		if (type) { // si on choisit une partie avec pions speciaux
-			CubeSpe p6 = new CubeSpe(false, new Integer[]{2, 2}, "rouge", false);
+			CubeSpe p6 = new CubeSpe(false, new Integer[] { 2, 2 }, "rouge", false);
 			pionsr.add(p6);
-			PyramSpe p14 = new PyramSpe(false, new Integer[]{1, 11}, "rouge", false);
+			PyramSpe p14 = new PyramSpe(false, new Integer[] { 1, 11 }, "rouge", false);
 			pionsr.add(p14);
-			SphereSpe p15 = new SphereSpe(false, new Integer[]{1, 6}, "rouge", false);
+			SphereSpe p15 = new SphereSpe(false, new Integer[] { 1, 6 }, "rouge", false);
 			pionsr.add(p15);
-			CubeSpe vp6 = new CubeSpe(false, new Integer[]{10, 2}, "vert", false);
+			CubeSpe vp6 = new CubeSpe(false, new Integer[] { 10, 2 }, "vert", false);
 			pionsv.add(vp6);
-			PyramSpe vp14 = new PyramSpe(false, new Integer[]{11, 11}, "vert", false);
+			PyramSpe vp14 = new PyramSpe(false, new Integer[] { 11, 11 }, "vert", false);
 			pionsv.add(vp14);
-			SphereSpe vp15 = new SphereSpe(false, new Integer[]{11, 6}, "vert", false);
+			SphereSpe vp15 = new SphereSpe(false, new Integer[] { 11, 6 }, "vert", false);
 			pionsv.add(vp15);
 		} else { // partie normale
-			Cube p6 = new Cube(false, new Integer[]{2, 2}, "rouge", false);
+			Cube p6 = new Cube(false, new Integer[] { 2, 2 }, "rouge", false);
 			pionsr.add(p6);
-			Pyramide p14 = new Pyramide(false, new Integer[]{1, 11}, "rouge", false);
+			Pyramide p14 = new Pyramide(false, new Integer[] { 1, 11 }, "rouge", false);
 			pionsr.add(p14);
-			Sphere p15 = new Sphere(false, new Integer[]{1, 6}, "rouge", false);
+			Sphere p15 = new Sphere(false, new Integer[] { 1, 6 }, "rouge", false);
 			pionsr.add(p15);
-			Cube vp6 = new Cube(false, new Integer[]{10, 2}, "vert", false);
+			Cube vp6 = new Cube(false, new Integer[] { 10, 2 }, "vert", false);
 			pionsv.add(vp6);
-			Pyramide vp14 = new Pyramide(false, new Integer[]{11, 11}, "vert", false);
+			Pyramide vp14 = new Pyramide(false, new Integer[] { 11, 11 }, "vert", false);
 			pionsv.add(vp14);
-			Sphere vp15 = new Sphere(false, new Integer[]{11, 6}, "vert", false);
+			Sphere vp15 = new Sphere(false, new Integer[] { 11, 6 }, "vert", false);
 			pionsv.add(vp15);
 		}
 	}
@@ -317,13 +279,13 @@ public class Plateau {
 			while (it.hasNext()) {
 				Piece p = it.next();
 				fich.write(p.getType() + "," + p.position[0] + "," + p.position[1] + "," + Boolean.toString(p.frozen)
-				+ "," + Boolean.toString(p.jok) + ";");
+						+ "," + Boolean.toString(p.jok) + ";");
 			}
 			fich.write(System.lineSeparator());
 			while (it2.hasNext()) {
 				Piece p = it2.next();
 				fich.write(p.getType() + "," + p.position[0] + "," + p.position[1] + "," + Boolean.toString(p.frozen)
-				+ "," + Boolean.toString(p.jok) + ";");
+						+ "," + Boolean.toString(p.jok) + ";");
 			}
 			fich.write(System.lineSeparator() + tour);
 			fich.close();
@@ -333,7 +295,7 @@ public class Plateau {
 		}
 	}
 
-	public void reload() {
+	public boolean reload() {
 		try {
 			BufferedReader br = new BufferedReader(new FileReader("SaveFile_" + pseudo1 + "_" + pseudo2));
 			String ligne = br.readLine();
@@ -343,80 +305,80 @@ public class Plateau {
 				if (c == "rouge") {
 					for (String pion : pions) {
 						String[] infos = pion.split(",");
-						Integer[] q = {Integer.valueOf(infos[1]), Integer.valueOf(infos[2])};
+						Integer[] q = { Integer.valueOf(infos[1]), Integer.valueOf(infos[2]) };
 						switch (infos[0]) {
-							case "Sphere ":
-								Sphere p = new Sphere(Boolean.parseBoolean(infos[3]), q, "rouge",
-								Boolean.parseBoolean(infos[4]));
-								pionsr.add(p);
-								break;
-							case "Sphere S ":
-								SphereSpe p2 = new SphereSpe(Boolean.parseBoolean(infos[3]), q, "rouge",
-								Boolean.parseBoolean(infos[4]));
-								pionsr.add(p2);
-								break;
-							case "Cube ":
-								Cube p3 = new Cube(Boolean.parseBoolean(infos[3]), q, "rouge",
-								Boolean.parseBoolean(infos[4]));
-								pionsr.add(p3);
-								break;
-							case "Cube S ":
-								CubeSpe p4 = new CubeSpe(Boolean.parseBoolean(infos[3]), q, "rouge",
-								Boolean.parseBoolean(infos[4]));
-								pionsr.add(p4);
-								break;
-							case "Pyramide ":
-								Pyramide p5 = new Pyramide(Boolean.parseBoolean(infos[3]), q, "rouge",
-								Boolean.parseBoolean(infos[4]));
-								pionsr.add(p5);
-								break;
-							case "Pyramide S ":
-								PyramSpe p6 = new PyramSpe(Boolean.parseBoolean(infos[3]), q, "rouge",
-								Boolean.parseBoolean(infos[4]));
-								pionsr.add(p6);
-								break;
-							default:
-								break;
+						case "Sphere ":
+							Sphere p = new Sphere(Boolean.parseBoolean(infos[3]), q, "rouge",
+									Boolean.parseBoolean(infos[4]));
+							pionsr.add(p);
+							break;
+						case "Sphere S ":
+							SphereSpe p2 = new SphereSpe(Boolean.parseBoolean(infos[3]), q, "rouge",
+									Boolean.parseBoolean(infos[4]));
+							pionsr.add(p2);
+							break;
+						case "Cube ":
+							Cube p3 = new Cube(Boolean.parseBoolean(infos[3]), q, "rouge",
+									Boolean.parseBoolean(infos[4]));
+							pionsr.add(p3);
+							break;
+						case "Cube S ":
+							CubeSpe p4 = new CubeSpe(Boolean.parseBoolean(infos[3]), q, "rouge",
+									Boolean.parseBoolean(infos[4]));
+							pionsr.add(p4);
+							break;
+						case "Pyramide ":
+							Pyramide p5 = new Pyramide(Boolean.parseBoolean(infos[3]), q, "rouge",
+									Boolean.parseBoolean(infos[4]));
+							pionsr.add(p5);
+							break;
+						case "Pyramide S ":
+							PyramSpe p6 = new PyramSpe(Boolean.parseBoolean(infos[3]), q, "rouge",
+									Boolean.parseBoolean(infos[4]));
+							pionsr.add(p6);
+							break;
+						default:
+							break;
 						}
 					}
 				}
 				if (c == "vert") {
 					for (String pion : pions) {
 						String[] infos = pion.split(",");
-						Integer[] q = {Integer.valueOf(infos[1]), Integer.valueOf(infos[2])};
+						Integer[] q = { Integer.valueOf(infos[1]), Integer.valueOf(infos[2]) };
 						switch (infos[0]) {
-							case "Sphere ":
-								Sphere p = new Sphere(Boolean.parseBoolean(infos[3]), q, "vert",
-								Boolean.parseBoolean(infos[4]));
-								pionsv.add(p);
-								break;
-							case "Sphere S ":
-								SphereSpe p2 = new SphereSpe(Boolean.parseBoolean(infos[3]), q, "vert",
-								Boolean.parseBoolean(infos[4]));
-								pionsv.add(p2);
-								break;
-							case "Cube ":
-								Cube p3 = new Cube(Boolean.parseBoolean(infos[3]), q, "vert",
-								Boolean.parseBoolean(infos[4]));
-								pionsv.add(p3);
-								break;
-							case "Cube S ":
-								CubeSpe p4 = new CubeSpe(Boolean.parseBoolean(infos[3]), q, "vert",
-								Boolean.parseBoolean(infos[4]));
-								pionsv.add(p4);
-								break;
-							case "Pyramide ":
-								Pyramide p5 = new Pyramide(Boolean.parseBoolean(infos[3]), q, "vert",
-								Boolean.parseBoolean(infos[4]));
-								pionsv.add(p5);
-								break;
-							case "Pyramide S ":
-								PyramSpe p6 = new PyramSpe(Boolean.parseBoolean(infos[3]), q, "vert",
-								Boolean.parseBoolean(infos[4]));
-								pionsv.add(p6);
-								break;
-							default:
-								break;
+						case "Sphere ":
+							Sphere p = new Sphere(Boolean.parseBoolean(infos[3]), q, "vert",
+									Boolean.parseBoolean(infos[4]));
+							pionsv.add(p);
+							break;
+						case "Sphere S ":
+							SphereSpe p2 = new SphereSpe(Boolean.parseBoolean(infos[3]), q, "vert",
+									Boolean.parseBoolean(infos[4]));
+							pionsv.add(p2);
+							break;
+						case "Cube ":
+							Cube p3 = new Cube(Boolean.parseBoolean(infos[3]), q, "vert",
+									Boolean.parseBoolean(infos[4]));
+							pionsv.add(p3);
+							break;
+						case "Cube S ":
+							CubeSpe p4 = new CubeSpe(Boolean.parseBoolean(infos[3]), q, "vert",
+									Boolean.parseBoolean(infos[4]));
+							pionsv.add(p4);
+							break;
+						case "Pyramide ":
+							Pyramide p5 = new Pyramide(Boolean.parseBoolean(infos[3]), q, "vert",
+									Boolean.parseBoolean(infos[4]));
+							pionsv.add(p5);
+							break;
+						case "Pyramide S ":
+							PyramSpe p6 = new PyramSpe(Boolean.parseBoolean(infos[3]), q, "vert",
+									Boolean.parseBoolean(infos[4]));
+							pionsv.add(p6);
+							break;
+						default:
+							break;
 						}
 					}
 				}
@@ -428,39 +390,49 @@ public class Plateau {
 			}
 			tour = Integer.parseInt(ligne);
 			br.close();
+			return true;
 		} catch (Exception e) {
 			System.out.println("Chargement planté! lancement d'une nouvelle partie normale");
 			newGame(false);
+			return false;
 		}
 
 	}
 
 	public String choix(Integer[] posi) {
-		String retour; //cassé, a repenser xD
+		String retour = ""; // cassé, a repenser xD
 		if (tour == 1) { // tour du vert
 			Iterator<Piece> it = pionsv.iterator();
 			while (it.hasNext()) {
 				Piece p = it.next();
-				if (Arrays.equals(p.position, posi)&&(!p.frozen||p.jok)&&!p.radar(pionsr, pionsv).isEmpty()) {
+				if (Arrays.equals(p.position, posi)){
+					if (p.frozen)
+						return "Ce pion est figé.";
+					if (p.radar(pionsr, pionsv).isEmpty())
+						return "Ce pion n'a pas d'option de déplacement.";
 					oriPosi = posi;
 					oriPawn = p;
-					return "";
+					return retour;
 				}
 			}
-			retour = "Cette pièce est à " + pseudo1 + "!";
+			retour = "Elle n'est pas à " + pseudo2 + "!";
 		} else {
 			Iterator<Piece> it = pionsr.iterator();
 			while (it.hasNext()) {
 				Piece p = it.next();
-				if (Arrays.equals(p.position, posi)&&(!p.frozen||p.jok)&&!p.radar(pionsr, pionsv).isEmpty()) {
+				if (Arrays.equals(p.position, posi)){
+					if (p.frozen)
+						return "Ce pion est figé.";
+					if (p.radar(pionsr, pionsv).isEmpty())
+						return "Ce pion n'a pas d'option de déplacement.";
 					oriPosi = posi;
 					oriPawn = p;
-					return "";
+					return retour;
 				}
 			}
-			retour = "Cette pièce est à " + pseudo2 + "!";
+			retour = "Elle n'est pas à " + pseudo1 + "!";
 		}
-		return "Cette pièce ne peut pas bouger!";
+		return "Cette pièce ne peut pas bouger!" + System.lineSeparator() + retour;
 	}
 
 	public boolean target(Integer[] posi) {
@@ -469,7 +441,7 @@ public class Plateau {
 			if (aaa[0].equals(posi[0]) && aaa[1].equals(posi[1])) {
 
 				if (oriPawn.getType().equals("Pyramide S ")) {
-					Integer[] a = {(oriPawn.position[0] + posi[0]) / 2, (oriPawn.position[1] + posi[1]) / 2};
+					Integer[] a = { (oriPawn.position[0] + posi[0]) / 2, (oriPawn.position[1] + posi[1]) / 2 };
 					movePawn(oriPawn, a, tour); // deplacement intermediaire pour les pyramides speciales
 				}
 				movePawn(oriPawn, posi, tour);
@@ -484,9 +456,8 @@ public class Plateau {
 					tour = 0;
 				}
 				return true;
-			} 
-			
-			
+			}
+
 			// verif si posi = unecase radar
 			// truc pour les pyra spe
 			// movepawn
