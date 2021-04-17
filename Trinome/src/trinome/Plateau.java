@@ -21,25 +21,132 @@ public class Plateau {
 
 	public ArrayList<Piece> pionsr; // liste des pions rouges
 	public ArrayList<Piece> pionsv; // liste des pions verts
-	private boolean cfroze; 		// booleen pour la fin du jeu
-	private boolean pfroze; 		// booleen pour la fin du jeu
-	private boolean sfroze; 		// booleen pour la fin du jeu
-	private String pseudo1;			//pseudo des joueurs jouant sur le plateau
-	private String pseudo2;			//pseudo des joueurs jouant sur le plateau
-	public int tour = 0;			//valeur du tour: 0 signifie que le joueur rouge joue, 1 c'est le vert. Ne prend pas d'autre valeur.
-	private Piece oriPawn;			//pion sélectionné au début d'un tour
-	public Integer[] oriPosi;		//objet permettant le déplacement du pion sélectionné
+	private boolean cfroze;
+	private boolean pfroze;
+	private boolean sfroze;
+	private String pseudo1;
+	private String pseudo2;
+	public int tour = 0;
+	public Integer[] oriPosi;
+	private Piece oriPawn;
 
-	public Plateau(String a, String b) {  //constructeur du plateau. Ne prend que 
+	public Plateau(String a, String b) {
 		pionsr = new ArrayList<>();
 		pionsv = new ArrayList<>();
 		pseudo1 = a;
 		pseudo2 = b;
 	}
-	
-	public void newGame(boolean type) { // fonction qui place les pions a des endroits predeterminés, selon le type choisit. Vrai produit une partie spéciale, faux une normale.
 
-		Cube p = new Cube(false, new Integer[] { 3, 1 }, "rouge", false);        //chaque pion est créé et ajouté un par un. Gros pavé de code.
+	public boolean endGame() { // verification des conditions pour finir la partie
+
+		int ns = 0;
+		int np = 0;
+		int nc = 0;
+		for (Piece p : pionsr) { // on parcourt tous les pions rouges pour voir si on a au moins un pion de
+			// chaque type principal,
+			// s'il y en a des figés en zone rouge
+			if (p.getType().equals("Cube ") || p.getType().equals("Cube S ")) {
+				nc++;
+			}
+			if (p.getType().equals("Pyramide ") || p.getType().equals("Pyramide S ")) {
+				np++;
+			}
+			if (p.getType().equals("Sphere ") || p.getType().equals("Sphere S ")) {
+				ns++;
+			}
+			if (p.frozen && (p.getType().equals("Cube ") || p.getType().equals("Cube S "))) {
+				cfroze = true;
+			}
+			if (p.frozen && (p.getType().equals("Pyramide ") || p.getType().equals("Pyramide S "))) {
+				pfroze = true;
+			}
+			if (p.frozen && (p.getType().equals("Sphere ") || p.getType().equals("Sphere S "))) {
+				sfroze = true;
+			}
+			// cas particulier pour les pions speciaux qui ont le joker actif, ils ne
+			// peuvent etre frozen
+			if (p.getType().equals("Cube S ") && p.position[0] == 11 && 4 < p.position[1] && p.position[1] < 8) {
+				cfroze = true;
+			}
+
+		}
+		if (sfroze && cfroze && pfroze) { // si trois pions sont confirmés en zone rouge
+			System.out.println("Gagnant designé!");
+			return true;
+		}
+		cfroze = sfroze = pfroze = false; // reset pour tester les verts
+		if (nc == 0 || np == 0 || ns == 0) // si une des categories est vide, alors la fin de partie est true
+		{
+			return true;
+		}
+
+		ns = 0;
+		np = 0;
+		nc = 0;
+		for (Piece p : pionsv) { // pareil pour les verts
+			if (p.getType().equals("Cube ") || p.getType().equals("Cube S ")) {
+				nc++;
+			}
+			if (p.getType().equals("Pyramide ") || p.getType().equals("Pyramide S ")) {
+				np++;
+			}
+			if (p.getType().equals("Sphere ") || p.getType().equals("Sphere S ")) {
+				ns++;
+			}
+			if (p.frozen && (p.getType().equals("Cube ") || p.getType().equals("Cube S "))) {
+				cfroze = true;
+			}
+			if (p.frozen && (p.getType().equals("Pyramide ") || p.getType().equals("Pyramide S "))) {
+				pfroze = true;
+			}
+			if (p.frozen && (p.getType().equals("Sphere ") || p.getType().equals("Sphere S "))) {
+				sfroze = true;
+			}
+			if (p.getType().equals("Cube S ") && p.position[0] == 1 && 4 < p.position[1] && p.position[1] < 8) {
+				cfroze = true;
+			}
+
+		}
+		if (nc == 0 || np == 0 || ns == 0) {
+			return true;
+		}
+
+		if (sfroze && cfroze && pfroze) {
+			System.out.println("Gagnant designé!");
+			return true;
+		}
+		cfroze = sfroze = pfroze = false;
+
+		return false;
+	}
+
+	public void movePawn(Piece pawn, Integer[] newpos, int tour) {
+		pawn.movesEnd(newpos); // passage a frozen si besoin, et changement des coordonées
+
+		if (tour == 0) { // tour du rouge
+			Iterator<Piece> it = pionsv.iterator();
+			while (it.hasNext()) { // si un pion adverse est sur la case d'arrivée, on le supprime
+				Piece p = it.next();
+				if (Arrays.equals(p.position, newpos)) {
+					deletePawn(p);
+					return;
+				}
+			}
+		} else { // tour du vert, et on fait pareil
+			Iterator<Piece> it = pionsr.iterator();
+			while (it.hasNext()) {
+				Piece p = it.next();
+				if (p.position[0] == newpos[0] && p.position[1] == newpos[1]) {
+					deletePawn(p);
+					return;
+				}
+			}
+		}
+	}
+
+	public void newGame(boolean type) { // fonction qui place les pions a des endroits predeterminés;
+
+		Cube p = new Cube(false, new Integer[] { 3, 1 }, "rouge", false);
 		pionsr.add(p);
 		Cube p2 = new Cube(false, new Integer[] { 1, 3 }, "rouge", false);
 		pionsr.add(p2);
@@ -88,8 +195,7 @@ public class Plateau {
 		pionsv.add(vp12);
 		Pyramide vp13 = new Pyramide(false, new Integer[] { 11, 10 }, "vert", false);
 		pionsv.add(vp13);
-
-		if (type) { 			// si on choisit une partie avec pions speciaux, les suivants sont les pions spéciaux
+		if (type) { // si on choisit une partie avec pions speciaux
 			CubeSpe p6 = new CubeSpe(false, new Integer[] { 2, 2 }, "rouge", false);
 			pionsr.add(p6);
 			PyramSpe p14 = new PyramSpe(false, new Integer[] { 1, 11 }, "rouge", false);
@@ -102,7 +208,7 @@ public class Plateau {
 			pionsv.add(vp14);
 			SphereSpe vp15 = new SphereSpe(false, new Integer[] { 11, 6 }, "vert", false);
 			pionsv.add(vp15);
-		} else { 				// partie normale, on continue avec plus de pions normaux
+		} else { // partie normale
 			Cube p6 = new Cube(false, new Integer[] { 2, 2 }, "rouge", false);
 			pionsr.add(p6);
 			Pyramide p14 = new Pyramide(false, new Integer[] { 1, 11 }, "rouge", false);
@@ -118,7 +224,78 @@ public class Plateau {
 		}
 	}
 
-	public boolean reload() {		//fonction qui recharge une partie enregistrée et place les pions aux endroits qui vont bien
+	public Piece selectPawn(int tour, Scanner sc) {
+
+		boolean b = true; // condition pour sortir de la boucle
+		do {
+			int i = 1;
+			if (tour == 1) { // le tour 1 est associé au joeur rouge
+				System.out.println("Tour du joueur rouge");
+				Iterator<Piece> it = pionsr.iterator();
+				while (it.hasNext()) {
+					Piece p = it.next();
+					System.out.println(Arrays.toString(p.position) + i); // on affiche toutes les pieces du joueur, avec
+					// leur numero dans la liste qui est i
+					i++;
+				}
+				System.out.println("mettre numero du point choisi");
+				Piece a = pionsr.get(sc.nextInt() - 1); // on recupere le pion specifié
+				if (!a.frozen || a.jok) // s'il n'est pas figé, on le renvoie
+				{
+					return a;
+				}
+			} else { // si tour n'est pas 1 mais 0 on arrive ici, et on refait pareil mais pour le
+				// joueur vert
+				System.out.println("Tour du joueur vert");
+				Iterator<Piece> it = pionsv.iterator();
+				while (it.hasNext()) {
+					Piece p = it.next();
+					System.out.println(Arrays.toString(p.position) + i);
+					i++;
+				}
+				System.out.println("mettre numero du point choisi");
+				Piece a = pionsv.get(sc.nextInt() - 1);
+				if (!a.frozen || a.jok) {
+					return a;
+				}
+			}
+			System.out.println("ce pion est figé!"); // si le pion est figé on arrive ultimement ici, et on recommence
+			// la boucle sans changer de joueur du coup
+		} while (b);
+		return pionsr.get(1);// juste pour que Java soit content; on n'y arrive jamais, b etant toujours true
+	}
+
+	public void deletePawn(Piece pawn) {
+		pionsr.remove(pawn); // on essaie d'effacer le pion specifié indifferement dans chaque liste, car les
+		// listes ne sont pas grosses
+		pionsv.remove(pawn);
+	}
+
+	public void save() {
+		Iterator<Piece> it = pionsr.iterator();
+		Iterator<Piece> it2 = pionsv.iterator();
+		try {
+			FileWriter fich = new FileWriter("SaveFile_" + pseudo1 + "_" + pseudo2);
+			while (it.hasNext()) {
+				Piece p = it.next();
+				fich.write(p.getType() + "," + p.position[0] + "," + p.position[1] + "," + Boolean.toString(p.frozen)
+						+ "," + Boolean.toString(p.jok) + ";");
+			}
+			fich.write(System.lineSeparator());
+			while (it2.hasNext()) {
+				Piece p = it2.next();
+				fich.write(p.getType() + "," + p.position[0] + "," + p.position[1] + "," + Boolean.toString(p.frozen)
+						+ "," + Boolean.toString(p.jok) + ";");
+			}
+			fich.write(System.lineSeparator() + tour);
+			fich.close();
+
+		} catch (Exception e) {
+			System.out.println("echec sauvegarde, tant pis!");
+		}
+	}
+
+	public boolean reload() {
 		try {
 			BufferedReader br = new BufferedReader(new FileReader("SaveFile_" + pseudo1 + "_" + pseudo2));
 			String ligne = br.readLine();
@@ -215,188 +392,11 @@ public class Plateau {
 			br.close();
 			return true;
 		} catch (Exception e) {
-			newGame(false);    //si le chargement échoue, on lance une partie normale vierge.
+			System.out.println("Chargement planté! lancement d'une nouvelle partie normale");
+			newGame(false);
 			return false;
 		}
 
-	}
-
-	//public Piece selectPawn(int tour, Scanner sc) {
-//
-	//	boolean b = true; // condition pour sortir de la boucle
-	//	do {
-	//		int i = 1;
-	//		if (tour == 1) { // le tour 1 est associé au joeur rouge
-	//			System.out.println("Tour du joueur rouge");
-	//			Iterator<Piece> it = pionsr.iterator();
-	//			while (it.hasNext()) {
-	//				Piece p = it.next();
-	//				System.out.println(Arrays.toString(p.position) + i); // on affiche toutes les pieces du joueur, avec
-	//				// leur numero dans la liste qui est i
-	//				i++;
-	//			}
-	//			System.out.println("mettre numero du point choisi");
-	//			Piece a = pionsr.get(sc.nextInt() - 1); // on recupere le pion specifié
-	//			if (!a.frozen || a.jok) // s'il n'est pas figé, on le renvoie
-	//			{
-	//				return a;
-	//			}
-	//		} else { // si tour n'est pas 1 mais 0 on arrive ici, et on refait pareil mais pour le
-	//			// joueur vert
-	//			System.out.println("Tour du joueur vert");
-	//			Iterator<Piece> it = pionsv.iterator();
-	//			while (it.hasNext()) {
-	//				Piece p = it.next();
-	//				System.out.println(Arrays.toString(p.position) + i);
-	//				i++;
-	//			}
-	//			System.out.println("mettre numero du point choisi");
-	//			Piece a = pionsv.get(sc.nextInt() - 1);
-	//			if (!a.frozen || a.jok) {
-	//				return a;
-	//			}
-	//		}
-	//		System.out.println("ce pion est figé!"); // si le pion est figé on arrive ultimement ici, et on recommence
-	//		// la boucle sans changer de joueur du coup
-	//	} while (b);
-	//	return pionsr.get(1);// juste pour que Java soit content; on n'y arrive jamais, b etant toujours true
-	//}
-//
-	public void movePawn(Piece pawn, Integer[] newpos, int tour) {
-		pawn.movesEnd(newpos); // passage a frozen si besoin, et changement des coordonées
-		
-		if (tour == 0) { // tour du rouge
-			Iterator<Piece> it = pionsv.iterator();
-			while (it.hasNext()) { // si un pion adverse est sur la case d'arrivée, on le supprime
-				Piece p = it.next();
-				if (Arrays.equals(p.position, newpos)) {
-					deletePawn(p);
-					return;
-				}
-			}
-		} else { // tour du vert, et on fait pareil
-			Iterator<Piece> it = pionsr.iterator();
-			while (it.hasNext()) {
-				Piece p = it.next();
-				if (p.position[0] == newpos[0] && p.position[1] == newpos[1]) {
-					deletePawn(p);
-					return;
-				}
-			}
-		}
-	}
-
-	public void deletePawn(Piece pawn) {
-		pionsr.remove(pawn); // on essaie d'effacer le pion specifié indifferement dans chaque liste, car les
-		// listes ne sont pas grosses
-		pionsv.remove(pawn);
-	}
-
-	public boolean endGame() { // verification des conditions pour finir la partie
-	
-		int ns = 0;
-		int np = 0;
-		int nc = 0;
-		for (Piece p : pionsr) { // on parcourt tous les pions rouges pour voir si on a au moins un pion de
-			// chaque type principal,
-			// s'il y en a des figés en zone rouge
-			if (p.getType().equals("Cube ") || p.getType().equals("Cube S ")) {
-				nc++;
-			}
-			if (p.getType().equals("Pyramide ") || p.getType().equals("Pyramide S ")) {
-				np++;
-			}
-			if (p.getType().equals("Sphere ") || p.getType().equals("Sphere S ")) {
-				ns++;
-			}
-			if (p.frozen && (p.getType().equals("Cube ") || p.getType().equals("Cube S "))) {
-				cfroze = true;
-			}
-			if (p.frozen && (p.getType().equals("Pyramide ") || p.getType().equals("Pyramide S "))) {
-				pfroze = true;
-			}
-			if (p.frozen && (p.getType().equals("Sphere ") || p.getType().equals("Sphere S "))) {
-				sfroze = true;
-			}
-			// cas particulier pour les pions speciaux qui ont le joker actif, ils ne
-			// peuvent etre frozen
-			if (p.getType().equals("Cube S ") && p.position[0] == 11 && 4 < p.position[1] && p.position[1] < 8) {
-				cfroze = true;
-			}
-
-		}
-		if (sfroze && cfroze && pfroze) { // si trois pions sont confirmés en zone rouge
-			System.out.println("Gagnant designé!");
-			return true;
-		}
-		cfroze = sfroze = pfroze = false; // reset pour tester les verts
-		if (nc == 0 || np == 0 || ns == 0) // si une des categories est vide, alors la fin de partie est true
-		{
-			return true;
-		}
-
-		ns = 0;
-		np = 0;
-		nc = 0;
-		for (Piece p : pionsv) { // pareil pour les verts
-			if (p.getType().equals("Cube ") || p.getType().equals("Cube S ")) {
-				nc++;
-			}
-			if (p.getType().equals("Pyramide ") || p.getType().equals("Pyramide S ")) {
-				np++;
-			}
-			if (p.getType().equals("Sphere ") || p.getType().equals("Sphere S ")) {
-				ns++;
-			}
-			if (p.frozen && (p.getType().equals("Cube ") || p.getType().equals("Cube S "))) {
-				cfroze = true;
-			}
-			if (p.frozen && (p.getType().equals("Pyramide ") || p.getType().equals("Pyramide S "))) {
-				pfroze = true;
-			}
-			if (p.frozen && (p.getType().equals("Sphere ") || p.getType().equals("Sphere S "))) {
-				sfroze = true;
-			}
-			if (p.getType().equals("Cube S ") && p.position[0] == 1 && 4 < p.position[1] && p.position[1] < 8) {
-				cfroze = true;
-			}
-
-		}
-		if (nc == 0 || np == 0 || ns == 0) {
-			return true;
-		}
-
-		if (sfroze && cfroze && pfroze) {
-			System.out.println("Gagnant designé!");
-			return true;
-		}
-		cfroze = sfroze = pfroze = false;
-
-		return false;
-	}
-
-	public void save() {
-		Iterator<Piece> it = pionsr.iterator();
-		Iterator<Piece> it2 = pionsv.iterator();
-		try {
-			FileWriter fich = new FileWriter("SaveFile_" + pseudo1 + "_" + pseudo2);
-			while (it.hasNext()) {
-				Piece p = it.next();
-				fich.write(p.getType() + "," + p.position[0] + "," + p.position[1] + "," + Boolean.toString(p.frozen)
-						+ "," + Boolean.toString(p.jok) + ";");
-			}
-			fich.write(System.lineSeparator());
-			while (it2.hasNext()) {
-				Piece p = it2.next();
-				fich.write(p.getType() + "," + p.position[0] + "," + p.position[1] + "," + Boolean.toString(p.frozen)
-						+ "," + Boolean.toString(p.jok) + ";");
-			}
-			fich.write(System.lineSeparator() + tour);
-			fich.close();
-
-		} catch (Exception e) {
-			System.out.println("echec sauvegarde, tant pis!");
-		}
 	}
 
 	public String choix(Integer[] posi) {
