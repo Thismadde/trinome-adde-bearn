@@ -40,12 +40,12 @@
                       <Component id="jTextField1" min="-2" pref="78" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="30" max="32767" attributes="0"/>
+              <EmptySpace pref="24" max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
-              <Component id="bQuitter" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="24" pref="24" max="-2" attributes="0"/>
+              <Component id="bQuitter" min="-2" pref="70" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -60,9 +60,9 @@
               </Group>
               <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
               <Component id="pBoutons" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
-              <Component id="bQuitter" min="-2" pref="46" max="-2" attributes="0"/>
-              <EmptySpace pref="20" max="32767" attributes="0"/>
+              <EmptySpace pref="68" max="32767" attributes="0"/>
+              <Component id="bQuitter" min="-2" pref="78" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -70,6 +70,9 @@
   <SubComponents>
     <Component class="javax.swing.JButton" name="bQuitter">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/pfiches/recherche sprites/607aaf792fc3f889253689.gif"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Quitter"/>
       </Properties>
       <Events>
@@ -109,9 +112,18 @@
                           <Component id="jRadioS" alignment="1" pref="149" max="32767" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Component id="bBonjour" min="-2" pref="185" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="bBonjour" min="-2" pref="185" max="-2" attributes="0"/>
+                          <EmptySpace pref="12" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
               </Group>
           </Group>
         </DimensionLayout>
@@ -124,10 +136,18 @@
                       <Component id="bJeu" pref="58" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jRadioN" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="jRadioN" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jRadioS" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
+                          <Component id="jLabel1" min="-2" pref="60" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jRadioS" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -166,10 +186,18 @@
               <ComponentRef name="grpRadButt"/>
             </Property>
             <Property name="text" type="java.lang.String" value="SPECIALE OwO"/>
+            <Property name="actionCommand" type="java.lang.String" value="SPECIALE"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioSActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel1">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/pfiches/recherche sprites/607ab0892e93e246087996.gif"/>
+            </Property>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>

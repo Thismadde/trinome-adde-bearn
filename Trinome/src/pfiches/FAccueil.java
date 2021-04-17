@@ -41,12 +41,14 @@ public class FAccueil extends javax.swing.JFrame {
         bBonjour = new javax.swing.JButton();
         jRadioN = new javax.swing.JRadioButton();
         jRadioS = new javax.swing.JRadioButton();
+        jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         tfNom = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Accueil");
 
+        bQuitter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pfiches/recherche sprites/607aaf792fc3f889253689.gif"))); // NOI18N
         bQuitter.setText("Quitter");
         bQuitter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -85,11 +87,14 @@ public class FAccueil extends javax.swing.JFrame {
 
         grpRadButt.add(jRadioS);
         jRadioS.setText("SPECIALE OwO");
+        jRadioS.setActionCommand("SPECIALE");
         jRadioS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioSActionPerformed(evt);
             }
         });
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pfiches/recherche sprites/607ab0892e93e246087996.gif"))); // NOI18N
 
         javax.swing.GroupLayout pBoutonsLayout = new javax.swing.GroupLayout(pBoutons);
         pBoutons.setLayout(pBoutonsLayout);
@@ -102,9 +107,15 @@ public class FAccueil extends javax.swing.JFrame {
                     .addGroup(pBoutonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jRadioN, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jRadioS, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(bBonjour, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(pBoutonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pBoutonsLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(bBonjour, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(12, Short.MAX_VALUE))
+                    .addGroup(pBoutonsLayout.createSequentialGroup()
+                        .addGap(57, 57, 57)
+                        .addComponent(jLabel1)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         pBoutonsLayout.setVerticalGroup(
             pBoutonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -114,10 +125,15 @@ public class FAccueil extends javax.swing.JFrame {
                     .addComponent(bBonjour, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(bJeu, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioN)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioS)
-                .addGap(25, 25, 25))
+                .addGroup(pBoutonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pBoutonsLayout.createSequentialGroup()
+                        .addComponent(jRadioN)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioS))
+                    .addGroup(pBoutonsLayout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
 
         jTextField1.setText("Pseudo2");
@@ -148,11 +164,11 @@ public class FAccueil extends javax.swing.JFrame {
                         .addComponent(tfNom, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(8, 8, 8)
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(bQuitter)
-                .addGap(24, 24, 24))
+                .addComponent(bQuitter, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(58, 58, 58))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -164,9 +180,9 @@ public class FAccueil extends javax.swing.JFrame {
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(39, 39, 39)
                 .addComponent(pBoutons, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55)
-                .addComponent(bQuitter, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
+                .addComponent(bQuitter, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -255,6 +271,7 @@ public class FAccueil extends javax.swing.JFrame {
     private javax.swing.JButton bJeu;
     private javax.swing.JButton bQuitter;
     private javax.swing.ButtonGroup grpRadButt;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JRadioButton jRadioN;
     private javax.swing.JRadioButton jRadioS;
     private javax.swing.JTextField jTextField1;
