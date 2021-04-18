@@ -48,8 +48,16 @@ public class FAccueil extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Accueil");
 
-        bQuitter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pfiches/recherche sprites/607aaf792fc3f889253689.gif"))); // NOI18N
+        bQuitter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pfiches/recherche sprites/aa.png"))); // NOI18N
         bQuitter.setText("Quitter");
+        bQuitter.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                bQuitterMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                bQuitterMouseExited(evt);
+            }
+        });
         bQuitter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bQuitterActionPerformed(evt);
@@ -167,7 +175,7 @@ public class FAccueil extends javax.swing.JFrame {
                 .addContainerGap(24, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(bQuitter, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(bQuitter)
                 .addGap(58, 58, 58))
         );
         layout.setVerticalGroup(
@@ -180,8 +188,8 @@ public class FAccueil extends javax.swing.JFrame {
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(39, 39, 39)
                 .addComponent(pBoutons, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
-                .addComponent(bQuitter, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addComponent(bQuitter)
                 .addContainerGap())
         );
 
@@ -229,6 +237,14 @@ public class FAccueil extends javax.swing.JFrame {
     private void jRadioSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioSActionPerformed
 		// TODO add your handling code here:
     }//GEN-LAST:event_jRadioSActionPerformed
+
+    private void bQuitterMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bQuitterMouseEntered
+	bQuitter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pfiches/recherche sprites/607aaf792fc3f889253689.gif")));        // TODO add your handling code here:
+    }//GEN-LAST:event_bQuitterMouseEntered
+
+    private void bQuitterMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bQuitterMouseExited
+        bQuitter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pfiches/recherche sprites/aa.png")));// TODO add your handling code here:
+    }//GEN-LAST:event_bQuitterMouseExited
 
 	/**
 	 * @param args the command line arguments

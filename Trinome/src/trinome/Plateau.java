@@ -19,13 +19,10 @@ import java.util.Scanner;
 
 public class Plateau {
 
-	public ArrayList<Piece> pionsr; // liste des pions rouges
-	public ArrayList<Piece> pionsv; // liste des pions verts
-	private boolean cfroze;
-	private boolean pfroze;
-	private boolean sfroze;
-	private String pseudo1;
-	private String pseudo2;
+	public ArrayList<Piece> pionsr, pionsv; // liste des pions verts et rouges
+	private boolean cfrozer, pfrozer,  sfrozer;
+	private boolean cfrozev, pfrozev,  sfrozev;
+	private String pseudo1, pseudo2;
 	public int tour = 0;
 	public Integer[] oriPosi;
 	private Piece oriPawn;
@@ -42,9 +39,19 @@ public class Plateau {
 		int ns = 0;
 		int np = 0;
 		int nc = 0;
+		cfrozer = false;
+		cfrozev = false;
+		
 		for (Piece p : pionsr) { // on parcourt tous les pions rouges pour voir si on a au moins un pion de
 			// chaque type principal,
 			// s'il y en a des figés en zone rouge
+			
+// cas particulier pour les pions speciaux qui ont le joker actif, ils ne
+			// peuvent etre frozen
+			
+			if (p.getType().equals("Cube S ") && p.position[0] == 11 && 4 < p.position[1] && p.position[1] < 8) {
+				cfrozer = true;
+			}
 			if (p.getType().equals("Cube ") || p.getType().equals("Cube S ")) {
 				nc++;
 			}
@@ -55,26 +62,20 @@ public class Plateau {
 				ns++;
 			}
 			if (p.frozen && (p.getType().equals("Cube ") || p.getType().equals("Cube S "))) {
-				cfroze = true;
+				cfrozer = true;
 			}
 			if (p.frozen && (p.getType().equals("Pyramide ") || p.getType().equals("Pyramide S "))) {
-				pfroze = true;
+				pfrozer = true;
 			}
 			if (p.frozen && (p.getType().equals("Sphere ") || p.getType().equals("Sphere S "))) {
-				sfroze = true;
-			}
-			// cas particulier pour les pions speciaux qui ont le joker actif, ils ne
-			// peuvent etre frozen
-			if (p.getType().equals("Cube S ") && p.position[0] == 11 && 4 < p.position[1] && p.position[1] < 8) {
-				cfroze = true;
+				sfrozer = true;
 			}
 
 		}
-		if (sfroze && cfroze && pfroze) { // si trois pions sont confirmés en zone rouge
+		if (sfrozer && cfrozer && pfrozer) { // si trois pions sont confirmés en zone rouge
 			System.out.println("Gagnant designé!");
 			return true;
 		}
-		cfroze = sfroze = pfroze = false; // reset pour tester les verts
 		if (nc == 0 || np == 0 || ns == 0) // si une des categories est vide, alors la fin de partie est true
 		{
 			return true;
@@ -83,7 +84,10 @@ public class Plateau {
 		ns = 0;
 		np = 0;
 		nc = 0;
-		for (Piece p : pionsv) { // pareil pour les verts
+		for (Piece p : pionsv) { // pareil pour les verts	
+			if (p.getType().equals("Cube S ") && p.position[0] == 1 && 4 < p.position[1] && p.position[1] < 8) {
+				cfrozev = true;
+			}
 			if (p.getType().equals("Cube ") || p.getType().equals("Cube S ")) {
 				nc++;
 			}
@@ -94,34 +98,29 @@ public class Plateau {
 				ns++;
 			}
 			if (p.frozen && (p.getType().equals("Cube ") || p.getType().equals("Cube S "))) {
-				cfroze = true;
+				cfrozev = true;
 			}
 			if (p.frozen && (p.getType().equals("Pyramide ") || p.getType().equals("Pyramide S "))) {
-				pfroze = true;
+				pfrozev = true;
 			}
 			if (p.frozen && (p.getType().equals("Sphere ") || p.getType().equals("Sphere S "))) {
-				sfroze = true;
+				sfrozev = true;
 			}
-			if (p.getType().equals("Cube S ") && p.position[0] == 1 && 4 < p.position[1] && p.position[1] < 8) {
-				cfroze = true;
-			}
-
 		}
 		if (nc == 0 || np == 0 || ns == 0) {
 			return true;
 		}
 
-		if (sfroze && cfroze && pfroze) {
+		if (sfrozev && cfrozev && pfrozev) {
 			System.out.println("Gagnant designé!");
 			return true;
 		}
-		cfroze = sfroze = pfroze = false;
 
 		return false;
 	}
 
 	public void movePawn(Piece pawn, Integer[] newpos, int tour) {
-		pawn.movesEnd(newpos); // passage a frozen si besoin, et changement des coordonées
+		pawn.movesEnd(newpos,cfrozer, pfrozer, sfrozer, cfrozev, pfrozev, sfrozev); // passage a frozen si besoin, et changement des coordonées
 
 		if (tour == 0) { // tour du rouge
 			Iterator<Piece> it = pionsv.iterator();

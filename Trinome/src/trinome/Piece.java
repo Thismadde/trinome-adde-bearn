@@ -40,14 +40,16 @@ public class Piece {
 		// meme si dans les fait seule le joker() des cubes speciaux nous interesse
 	}
 
-	public void movesEnd(Integer[] newpos) { //sert a actualiser la position du point apres avoir selectionné la destination, 
+	public void movesEnd(Integer[] newpos, boolean cfrozer, boolean pfrozer, boolean sfrozer, boolean cfrozev, boolean pfrozev, boolean sfrozev) { //sert a actualiser la position du point apres avoir selectionné la destination, 
 		//et a changer le caractere figé des pieces selon leur position apres le deplacement
 		position = newpos.clone();
-		if ((getColor().equals("rouge") && position[0] == 11 && 4 < position[1] && position[1] < 8)
-		|| //conditions pour les rouges
-		(getColor().equals("vert") && position[0] == 1 && 4 < position[1] && position[1] < 8)) //conditions pour les verts
+		if ((getColor().equals("rouge") && position[0] == 11 && 4 < position[1] && position[1] < 8) //conditions pour les rouges
+			|| (getColor().equals("vert") && position[0] == 1 && 4 < position[1] && position[1] < 8)) //conditions pour les verts
 		{
-			frozen = true;
+			if (getColor().equals("rouge") && (((getType().equals("Cube ") || (getType().equals("Cube S ")&&!jok)) && !cfrozer)||((getType().equals("Pyramide ") || getType().equals("Pyramide S ")) && !pfrozer)||((getType().equals("Sphere ") || getType().equals("Sphere S "))&& !sfrozer)))
+				frozen = true;
+			if(getColor().equals("vert") && (((getType().equals("Cube ") || (getType().equals("Cube S ")&&!jok)) && !cfrozev)||((getType().equals("Pyramide ") || getType().equals("Pyramide S "))&& !pfrozev)|| ((getType().equals("Sphere ") || getType().equals("Sphere S "))&& !sfrozev)))
+				frozen = true;
 		}
 	}
 
