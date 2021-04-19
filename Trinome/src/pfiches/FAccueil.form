@@ -108,7 +108,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="bJeu" min="-2" pref="185" max="-2" attributes="0"/>
+                      <Component id="bNewGame" min="-2" pref="185" max="-2" attributes="0"/>
                       <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jRadioN" alignment="1" max="32767" attributes="0"/>
                           <Component id="jRadioS" alignment="1" pref="149" max="32767" attributes="0"/>
@@ -117,7 +117,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="bBonjour" min="-2" pref="185" max="-2" attributes="0"/>
+                          <Component id="bCharger" min="-2" pref="185" max="-2" attributes="0"/>
                           <EmptySpace pref="12" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -134,8 +134,8 @@
               <Group type="102" attributes="0">
                   <EmptySpace pref="26" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="bBonjour" max="32767" attributes="0"/>
-                      <Component id="bJeu" pref="58" max="32767" attributes="0"/>
+                      <Component id="bCharger" max="32767" attributes="0"/>
+                      <Component id="bNewGame" pref="58" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -155,20 +155,20 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="bJeu">
+        <Component class="javax.swing.JButton" name="bNewGame">
           <Properties>
             <Property name="text" type="java.lang.String" value="LANCER UNE PARTIE (&gt;&apos;-&apos;&lt;)"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bJeuActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bNewGameActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="bBonjour">
+        <Component class="javax.swing.JButton" name="bCharger">
           <Properties>
             <Property name="text" type="java.lang.String" value="CHARGER &#x30fe;(&#x2022;&#x3c9;&#x2022;`)o"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bBonjourActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bChargerActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JRadioButton" name="jRadioN">

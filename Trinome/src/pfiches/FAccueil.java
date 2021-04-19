@@ -21,7 +21,6 @@ public class FAccueil extends javax.swing.JFrame {
 
 	public FAccueil() {
 		initComponents();
-
 	}
 
 	/**
@@ -37,8 +36,8 @@ public class FAccueil extends javax.swing.JFrame {
         bQuitter = new javax.swing.JButton();
         lNom = new javax.swing.JLabel();
         pBoutons = new javax.swing.JPanel();
-        bJeu = new javax.swing.JButton();
-        bBonjour = new javax.swing.JButton();
+        bNewGame = new javax.swing.JButton();
+        bCharger = new javax.swing.JButton();
         jRadioN = new javax.swing.JRadioButton();
         jRadioS = new javax.swing.JRadioButton();
         jLabel1 = new javax.swing.JLabel();
@@ -71,17 +70,17 @@ public class FAccueil extends javax.swing.JFrame {
 
         pBoutons.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        bJeu.setText("LANCER UNE PARTIE (>'-'<)");
-        bJeu.addActionListener(new java.awt.event.ActionListener() {
+        bNewGame.setText("LANCER UNE PARTIE (>'-'<)");
+        bNewGame.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bJeuActionPerformed(evt);
+                bNewGameActionPerformed(evt);
             }
         });
 
-        bBonjour.setText("CHARGER ヾ(•ω•`)o");
-        bBonjour.addActionListener(new java.awt.event.ActionListener() {
+        bCharger.setText("CHARGER ヾ(•ω•`)o");
+        bCharger.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bBonjourActionPerformed(evt);
+                bChargerActionPerformed(evt);
             }
         });
 
@@ -111,14 +110,14 @@ public class FAccueil extends javax.swing.JFrame {
             .addGroup(pBoutonsLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pBoutonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(bJeu, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bNewGame, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pBoutonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jRadioN, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jRadioS, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)))
                 .addGroup(pBoutonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pBoutonsLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(bBonjour, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(bCharger, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(12, Short.MAX_VALUE))
                     .addGroup(pBoutonsLayout.createSequentialGroup()
                         .addGap(57, 57, 57)
@@ -130,8 +129,8 @@ public class FAccueil extends javax.swing.JFrame {
             .addGroup(pBoutonsLayout.createSequentialGroup()
                 .addContainerGap(26, Short.MAX_VALUE)
                 .addGroup(pBoutonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(bBonjour, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(bJeu, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE))
+                    .addComponent(bCharger, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(bNewGame, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pBoutonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pBoutonsLayout.createSequentialGroup()
@@ -201,13 +200,13 @@ public class FAccueil extends javax.swing.JFrame {
 		System.exit(0);
     }//GEN-LAST:event_bQuitterActionPerformed
 
-    private void bBonjourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBonjourActionPerformed
+    private void bChargerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bChargerActionPerformed
 		// TODO add your handling code here:
 		fichGame = new FJeu(this, false, tfNom.getText(), jTextField1.getText());
 		fichGame.setVisible(true);
-    }//GEN-LAST:event_bBonjourActionPerformed
+    }//GEN-LAST:event_bChargerActionPerformed
 
-    private void bJeuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bJeuActionPerformed
+    private void bNewGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bNewGameActionPerformed
 		// TODO add your handling code here:
 		String type = "NORMALE";
 		Enumeration<AbstractButton> enu = grpRadButt.getElements();
@@ -220,7 +219,7 @@ public class FAccueil extends javax.swing.JFrame {
 		}
 		fichGame = new FJeu(this, false, type.equals("SPECIALE"),tfNom.getText(), jTextField1.getText());
 		fichGame.setVisible(true);
-    }//GEN-LAST:event_bJeuActionPerformed
+    }//GEN-LAST:event_bNewGameActionPerformed
 
     private void jRadioNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioNActionPerformed
 		// TODO add your handling code here:
@@ -239,11 +238,11 @@ public class FAccueil extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioSActionPerformed
 
     private void bQuitterMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bQuitterMouseEntered
-	bQuitter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pfiches/recherche sprites/607aaf792fc3f889253689.gif")));        // TODO add your handling code here:
+	bQuitter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pfiches/recherche sprites/607aaf792fc3f889253689.gif")));
     }//GEN-LAST:event_bQuitterMouseEntered
 
     private void bQuitterMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bQuitterMouseExited
-        bQuitter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pfiches/recherche sprites/aa.png")));// TODO add your handling code here:
+        bQuitter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pfiches/recherche sprites/aa.png")));
     }//GEN-LAST:event_bQuitterMouseExited
 
 	/**
@@ -283,8 +282,8 @@ public class FAccueil extends javax.swing.JFrame {
 	}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bBonjour;
-    private javax.swing.JButton bJeu;
+    private javax.swing.JButton bCharger;
+    private javax.swing.JButton bNewGame;
     private javax.swing.JButton bQuitter;
     private javax.swing.ButtonGroup grpRadButt;
     private javax.swing.JLabel jLabel1;

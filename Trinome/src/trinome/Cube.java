@@ -17,9 +17,9 @@ public class Cube extends Piece {
 
 	public Cube(boolean fix, Integer[] pos, String team, boolean j) {
 		super(fix, pos, team, j);
-		if (team == "vert") {
+		if ("vert".equals(team)) {
 			sprite = new javax.swing.ImageIcon(getClass().getResource("/pfiches/recherche sprites/cubeV.png"));
-		} else if (team == "rouge") {
+		} else if ("rouge".equals(team)) {
 			sprite = new javax.swing.ImageIcon(getClass().getResource("/pfiches/recherche sprites/cubeR.png"));
 		}
 	}
@@ -33,6 +33,8 @@ public class Cube extends Piece {
 	public ArrayList<Integer[]> radar(ArrayList<Piece> pionsr, ArrayList<Piece> pionsv) {
 
 		// renvoie les cases ou le pion peut aller
+		
+		
 		if (color.equals("rouge")) {                                 //
 			sameCol = (ArrayList<Piece>) pionsr.clone();            //
 		} // selon la couleur du pion, on etudiera 
@@ -65,7 +67,4 @@ public class Cube extends Piece {
 		return zbleh;
 	}
 
-	public void blit() { //pour l'interface graphique peut-etre
-
-	}
 }

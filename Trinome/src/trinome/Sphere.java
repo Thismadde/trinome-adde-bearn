@@ -10,7 +10,6 @@ package trinome;
  * @author Utilisateur
  */
 import java.util.ArrayList;
-import javax.swing.ImageIcon;
 
 public class Sphere extends Piece {
 

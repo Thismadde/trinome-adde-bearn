@@ -6,7 +6,6 @@
 package trinome;
 
 import java.util.ArrayList;
-import javax.swing.ImageIcon;
 
 /**
  *
@@ -67,7 +66,7 @@ public class PyramSpe extends Pyramide {
 		}
 
 		//-2 -2                                                                                             
-		if (conflict(position[0] - 1, position[1] - 1, othercol) && (0 < position[0] - 2) && (0 < position[1] - 2)
+		if (conflict(position[0] - 1, position[1] - 1, othercol) && (0 < position[0] - 2) && (0 < position[1] - 2)//ici on verifie si il y a bien un ennemi a 1 case de distance, et si la case suivante est libre
 		&& !conflict(position[0] - 2, position[1] - 2, samecol) && !conflict(position[0] - 2, position[1] - 2, othercol)) {  //
 			Integer[] npos = {position[0] - 2, position[1] - 2};                                                       //
 			zbleh.add(npos);                                                                                      //
@@ -77,7 +76,7 @@ public class PyramSpe extends Pyramide {
 		&& !conflict(position[0] - 2, position[1] + 2, samecol) && !conflict(position[0] - 2, position[1] + 2, othercol)) {  //
 			Integer[] npos = {position[0] - 2, position[1] + 2};                                                       //
 			zbleh.add(npos);                                                            //
-		}         //ici on verifie si il y a bien un ennemi a 1 case de distance, et si la case suivante est libre
+		}         
 		//+2 +2                                                                         //
 		if (conflict(position[0] + 1, position[1] + 1, othercol) && (position[0] + 2 < 12) && (position[1] + 1 < 12)
 		&& !conflict(position[0] + 2, position[1] + 2, samecol) && !conflict(position[0] + 2, position[1] + 2, othercol)) { //

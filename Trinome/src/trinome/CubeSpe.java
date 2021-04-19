@@ -7,7 +7,6 @@
 package trinome;
 
 import java.util.ArrayList;
-import javax.swing.ImageIcon;
 
 /**
  *
@@ -45,14 +44,14 @@ public class CubeSpe extends Cube {
 			if (n < 2) { //s'il n'y avait pas assez de pions sur la diagonale \, on verifie ceux sur la diagonale /
 				n = 0; //on remet le compteur a 0
 				for (Piece p : pions) { //on reparcourt tous les pions de la meme couleur
-					if (p.position[0] - position[0] == -p.position[1] + position[1]) {
+					if (p.position[0] - position[0] == position[1] - p.position[1]) {
 						n++;
 					}
 				}
 			}
 			if (n > 1)//s'il y a eu assez de pions sur l'une ou l'autre des diagonales
 			{
-				jok = true;
+				joker = true;
 			}
 		}
 	}

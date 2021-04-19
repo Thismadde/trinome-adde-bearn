@@ -63,13 +63,13 @@ public class SphereSpe extends Sphere {
 				Integer[] npos = {position[0] + 2, position[1] - 2};
 				zbleh.add(npos);
 			}
+			//0 -2
+			if (!conflict(position[0], position[1] - 2, otherCol) && !conflict(position[0], position[1] - 2, sameCoL)
+			&& (0 < position[1] - 2)) {
+				Integer[] npos = {position[0], position[1] - 2};
+				zbleh.add(npos);
+			}
 			if (zbleh.isEmpty()) {      //on n'envisage les deplacement en arriere que si les autres sont tous indisponibles
-				//0 -2
-				if (!conflict(position[0], position[1] - 2, otherCol) && !conflict(position[0], position[1] - 2, sameCoL)
-				&& (0 < position[1] - 2)) {
-					Integer[] npos = {position[0], position[1] - 2};
-					zbleh.add(npos);
-				}
 				//-2 0
 				if (!conflict(position[0] - 2, position[1], otherCol) && !conflict(position[0] - 2, position[1] + 0, sameCoL)
 				&& (0 < position[0] - 2)) {
