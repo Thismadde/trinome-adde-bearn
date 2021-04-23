@@ -66,7 +66,4 @@ public class Pyramide extends Piece {
 		return zbleh;
 	}
 
-	public void blit() {
-
-	}
 }

@@ -99,7 +99,4 @@ public class Sphere extends Piece {
 		return zbleh;
 	}
 
-	public void blit() {
-
-	}
 }
