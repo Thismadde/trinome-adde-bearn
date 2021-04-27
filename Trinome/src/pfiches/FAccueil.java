@@ -197,13 +197,13 @@ public class FAccueil extends javax.swing.JFrame {
 
     private void bQuitterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bQuitterActionPerformed
 		// TODO add your handling code here:
-		System.exit(0);
+		System.exit(0);   //on arrete le programme
     }//GEN-LAST:event_bQuitterActionPerformed
 
     private void bChargerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bChargerActionPerformed
 		// TODO add your handling code here:
-		fichGame = new FJeu(this, false, tfNom.getText(), jTextField1.getText());
-		fichGame.setVisible(true);
+		fichGame = new FJeu(this, false, tfNom.getText(), jTextField1.getText()); // on genere la fenetre de jeu avec le constructeur qui essaiera de charger la sauvegarde
+		fichGame.setVisible(true);  //on affiche cette fenetre
     }//GEN-LAST:event_bChargerActionPerformed
 
     private void bNewGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bNewGameActionPerformed

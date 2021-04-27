@@ -1598,7 +1598,7 @@ public class FJeu extends javax.swing.JDialog {
 						slap1.setVisible(false);
 						slap2.setVisible(false);
 					}
-					else if (Arrays.equals(posi,plato.oriPosi)){
+					else if (Arrays.equals(posi,plato.oriPawn.position)){
 						step = "choix";
 						((JButton) evt.getSource()).setBackground(null);
 						labelInfos.setText("<html>(☞ﾟヮﾟ)☞ Choix du pion ☜(ﾟヮﾟ☜)</html>");

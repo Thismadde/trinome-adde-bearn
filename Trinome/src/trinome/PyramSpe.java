@@ -18,9 +18,9 @@ public class PyramSpe extends Pyramide {
 
 	public PyramSpe(boolean fix, Integer[] pos, String team, boolean j) {
 		super(fix, pos, team, j);
-		if (team == "vert") {
+		if (team == "vert") {            //si la couleur du pion est vert, on lui donne la version verte de l'image
 			sprite = new javax.swing.ImageIcon(getClass().getResource("/pfiches/recherche sprites/pyraVs.png"));
-		} else if (team == "rouge") {
+		} else if (team == "rouge") { //sinon si c'est rouge, la version rouge        
 			sprite = new javax.swing.ImageIcon(getClass().getResource("/pfiches/recherche sprites/pyraRs.png"));
 		}
 	}

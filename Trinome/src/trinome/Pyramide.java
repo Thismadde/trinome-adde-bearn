@@ -17,9 +17,9 @@ public class Pyramide extends Piece {
 
 	public Pyramide(boolean fix, Integer[] pos, String team, boolean j) {
 		super(fix, pos, team, j);
-		if (team == "vert") {
+		if (team == "vert") {            //si la couleur du pion est vert, on lui donne la version verte de l'image
 			sprite = new javax.swing.ImageIcon(getClass().getResource("/pfiches/recherche sprites/pyraV.png"));
-		} else if (team == "rouge") {
+		} else if (team == "rouge") { //sinon si c'est rouge, la version rouge        
 			sprite = new javax.swing.ImageIcon(getClass().getResource("/pfiches/recherche sprites/pyraR.png"));
 		}
 	}
@@ -66,7 +66,4 @@ public class Pyramide extends Piece {
 		return zbleh;
 	}
 
-	public void blit() {
-
-	}
 }

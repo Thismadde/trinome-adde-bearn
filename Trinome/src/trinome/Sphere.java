@@ -18,9 +18,9 @@ public class Sphere extends Piece {
 
 	public Sphere(boolean fix, Integer[] pos, String team, boolean j) {
 		super(fix, pos, team, j);
-		if (team == "vert") {
+		if (team == "vert") {            //si la couleur du pion est vert, on lui donne la version verte de l'image
 			sprite = new javax.swing.ImageIcon(getClass().getResource("/pfiches/recherche sprites/demispV.png"));
-		} else if (team == "rouge") {
+		} else if (team == "rouge") { //sinon si c'est rouge, la version rouge        
 			sprite = new javax.swing.ImageIcon(getClass().getResource("/pfiches/recherche sprites/demispR.png"));
 		}
 	}
@@ -40,6 +40,7 @@ public class Sphere extends Piece {
 			sameCoL = (ArrayList<Piece>) pionsr.clone();
 			otherCol = (ArrayList<Piece>) pionsv.clone();
 			//et apres relecture je me rend compte que ca ne sert a rien, genre vraiment on fait la meme chose aux deux...
+			//mais bon, maintenant que c'est la...
 		} else if (color.equals("vert")) {
 			sameCoL = (ArrayList<Piece>) pionsv.clone();
 			otherCol = (ArrayList<Piece>) pionsr.clone();
@@ -54,7 +55,7 @@ public class Sphere extends Piece {
 			zbleh.add(npos);
 		}
 		//-2 0
-		if (!conflict(position[0] - 2, position[1], otherCol) && !conflict(position[0] - 2, position[1] + 0, sameCoL)
+		if (!conflict(position[0] - 2, position[1], otherCol) && !conflict(position[0] - 2, position[1], sameCoL)
 		&& (0 < position[0] - 2)) {
 			Integer[] npos = {position[0] - 2, position[1]};
 			zbleh.add(npos);
@@ -78,7 +79,7 @@ public class Sphere extends Piece {
 			zbleh.add(npos);
 		}
 		//+2 0
-		if (!conflict(position[0] + 2, position[1], otherCol) && !conflict(position[0] + 2, position[1] + 0, sameCoL)
+		if (!conflict(position[0] + 2, position[1], otherCol) && !conflict(position[0] + 2, position[1], sameCoL)
 		&& (position[0] + 2 < 12)) {
 			Integer[] npos = {position[0] + 2, position[1]};
 			zbleh.add(npos);
@@ -99,7 +100,4 @@ public class Sphere extends Piece {
 		return zbleh;
 	}
 
-	public void blit() {
-
-	}
 }

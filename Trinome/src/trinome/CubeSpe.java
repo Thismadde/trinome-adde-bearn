@@ -10,16 +10,15 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Utilisateur
+ * @author Clarrisse, Mathis
  */
 public class CubeSpe extends Cube {
 
 	public CubeSpe(boolean fix, Integer[] pos, String team, boolean j) {
 		super(fix, pos, team, j);
-		if (team == "vert") {
-			
+		if (team == "vert") {      //si la couleur du pion est vert, on lui donne la version verte de l'image
 			sprite = new javax.swing.ImageIcon(getClass().getResource("/pfiches/recherche sprites/cubeVs.png"));
-		} else if (team == "rouge") {
+		} else if (team == "rouge") { //sinon si c'est rouge, la version rouge        
 			sprite =new javax.swing.ImageIcon(getClass().getResource("/pfiches/recherche sprites/cubeRs.png"));
 		}
 	}
@@ -31,9 +30,9 @@ public class CubeSpe extends Cube {
 
 	@Override
 	public void joker(ArrayList<Piece> pions) {
-		//pour activer le joker des cubes speciaux 
+		//pour activer le activeJoker des cubes speciaux 
 
-		if (!frozen) {               //si le joker est deja activé on ne fait rien
+		if (!frozen) {               //si le pion est déjà verouillé on ne fait rien
 			int n = 0;              //compteur de pions sur la meme diagonale
 			for (Piece p : pions) {  //on parcourt toutes les pieces de la meme couleur
 				if (p.position[0] - position[0] == p.position[1] - position[1]) //si le pion est  sur la meme diagonale \ 
@@ -51,7 +50,7 @@ public class CubeSpe extends Cube {
 			}
 			if (n > 1)//s'il y a eu assez de pions sur l'une ou l'autre des diagonales
 			{
-				joker = true;
+				activeJoker = true;
 			}
 		}
 	}

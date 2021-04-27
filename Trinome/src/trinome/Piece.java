@@ -18,14 +18,14 @@ public class Piece {
 	protected boolean frozen;		//caractère figé de la pièce, true si elle l'est, false sinon
 	public Integer[] position;		//tableau des coordonées du pion
 	public String color;			//couleur du pion
-	public boolean joker = false;	//joker des cubes speciaux
+	public boolean activeJoker = false;	//joker des cubes speciaux
 	public ImageIcon sprite;		
 
 	public Piece(boolean fix, Integer[] pos, String team, boolean j) {
 		frozen = fix;
 		position = pos;
 		color = team;
-		joker = j;
+		activeJoker = j;
 	}
 
 	public String getColor() {
@@ -36,8 +36,8 @@ public class Piece {
 		return "Piepiece";
 	}
 
-	public void joker(ArrayList<Piece> pions) { //pour pouvoir appeler joker() sur toutes les pieces,
-					// meme si dans les fait seule le joker des cubes speciaux nous interesse
+	public void joker(ArrayList<Piece> pions) { //pour pouvoir appeler activeJoker() sur toutes les pieces,
+					// meme si dans les fait seule le activeJoker des cubes speciaux nous interesse
 	}
 
 	public void movesEnd(Integer[] newpos, boolean cfrozer, boolean pfrozer, boolean sfrozer, boolean cfrozev, boolean pfrozev, boolean sfrozev) { //sert a actualiser la position du point apres avoir selectionné la destination, 
@@ -48,18 +48,18 @@ public class Piece {
 			|| (getColor().equals("vert") && position[0] == 1 && 4 < position[1] && position[1] < 8)) //conditions de position pour les verts
 		{
 			if (getColor().equals("rouge") &&									//pour les pieces rouges
-			(((getType().equals("Cube ") || (getType().equals("Cube S ")&&!joker)) && !cfrozer)|| //Si c'est un cube (ou cube special SANS joker) et qu'il n'y a pas deja un cube figé
+			(((getType().equals("Cube ") || (getType().equals("Cube S ")&&!activeJoker)) && !cfrozer)|| //Si c'est un cube (ou cube special SANS activeJoker) et qu'il n'y a pas deja un cube figé
 			((getType().equals("Pyramide ") || getType().equals("Pyramide S ")) && !pfrozer)|| //		  une pyramide ou pyramide speciale					une pyramide figée
 			((getType().equals("Sphere ") || getType().equals("Sphere S "))&& !sfrozer)))	//                     une sphere ou sphere speciale					une sphere figée
 				frozen = true;										// alors on fige cette pièce
 			
 			//pareil pour les verts
-			if(getColor().equals("vert") && (((getType().equals("Cube ") || (getType().equals("Cube S ")&&!joker)) && !cfrozev)||((getType().equals("Pyramide ") || getType().equals("Pyramide S "))&& !pfrozev)|| ((getType().equals("Sphere ") || getType().equals("Sphere S "))&& !sfrozev)))
+			if(getColor().equals("vert") && (((getType().equals("Cube ") || (getType().equals("Cube S ")&&!activeJoker)) && !cfrozev)||((getType().equals("Pyramide ") || getType().equals("Pyramide S "))&& !pfrozev)|| ((getType().equals("Sphere ") || getType().equals("Sphere S "))&& !sfrozev)))
 				frozen = true;
 		}
 	}
 
-	public ArrayList<Integer[]> radar(ArrayList<Piece> pionsr, ArrayList<Piece> pionsv) { //pareil que joker() plus haut ^
+	public ArrayList<Integer[]> radar(ArrayList<Piece> pionsr, ArrayList<Piece> pionsv) { //pareil que activeJoker() plus haut ^
 		return new ArrayList<>();
 	}
 

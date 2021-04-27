@@ -1,3 +1,6 @@
 {
-    "java.dependency.syncWithFolderExplorer": false
+    "java.dependency.syncWithFolderExplorer": false,
+    "java.project.sourcePaths": [
+        "src/pfiches"
+    ]
 }

@@ -18,9 +18,9 @@ public class SphereSpe extends Sphere {
 
 	public SphereSpe(boolean fix, Integer[] pos, String team, boolean j) {
 		super(fix, pos, team, j);
-		if (team == "vert") {
+		if (team == "vert") {                //si la couleur du pion est vert, on lui donne la version verte de l'image
 			sprite = new javax.swing.ImageIcon(getClass().getResource("/pfiches/recherche sprites/demispVs.png"));
-		} else if (team == "rouge") {
+		} else if (team == "rouge") { //sinon si c'est rouge, la version rouge        
 			sprite = new javax.swing.ImageIcon(getClass().getResource("/pfiches/recherche sprites/demispRs.png"));
 		}
 	}
@@ -36,7 +36,7 @@ public class SphereSpe extends Sphere {
 		//meme fonction que pour les spheres, a un detail pres
 		ArrayList<Integer[]> zbleh = new ArrayList<>();
 
-		if (color.equals("rouge")) {
+		if (color.equals("rouge")) {		//séparation des cas ici car les couleurs ne vont pas dans le même sens, donc les verif pour l'une ne sont pas reutilisables pour l'autre (en partie)
 			sameCoL = (ArrayList<Piece>) pionsr.clone();
 			otherCol = (ArrayList<Piece>) pionsv.clone();
 			//0 +2 

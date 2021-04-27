@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch FAccueil",
+            "request": "launch",
+            "mainClass": "FAccueil",
+            "projectName": "Trinome_e7662189"
+        },
+        {
+            "type": "java",
             "name": "Launch Current File",
             "request": "launch",
             "mainClass": "${file}"
