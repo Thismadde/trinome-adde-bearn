@@ -235,13 +235,13 @@ public class Plateau {
 			while (it.hasNext()) {
 				Piece p = it.next();
 				fich.write(p.getType() + "," + p.position[0] + "," + p.position[1] + "," + Boolean.toString(p.frozen)
-						+ "," + Boolean.toString(p.joker) + ";");
+						+ "," + Boolean.toString(p.activeJoker) + ";");
 			}
 			fich.write(System.lineSeparator());
 			while (it2.hasNext()) {
 				Piece p = it2.next();
 				fich.write(p.getType() + "," + p.position[0] + "," + p.position[1] + "," + Boolean.toString(p.frozen)
-						+ "," + Boolean.toString(p.joker) + ";");
+						+ "," + Boolean.toString(p.activeJoker) + ";");
 			}
 			fich.write(System.lineSeparator() + tour);
 			fich.close();
