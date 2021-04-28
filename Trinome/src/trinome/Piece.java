@@ -59,7 +59,8 @@ public class Piece {
 		}
 	}
 
-	public ArrayList<Integer[]> radar(ArrayList<Piece> pionsr, ArrayList<Piece> pionsv) { //pareil que activeJoker() plus haut ^
+	public ArrayList<Integer[]> radar(ArrayList<Piece> pionsr, ArrayList<Piece> pionsv) { //pareil que activeJoker() plus haut ^. Renvoie les cases ou l'on a le droit de bouger la piece
+														      //donc si elle est vide, sur le pleateau, et porte une piece adverse non figée si le pion est capable de capture
 		return new ArrayList<>();
 	}
 

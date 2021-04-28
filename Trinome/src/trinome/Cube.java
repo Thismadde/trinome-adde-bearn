@@ -19,7 +19,7 @@ public class Cube extends Piece {
 		super(fix, pos, team, j);
 		if ("vert".equals(team)) {		//si la couleur du pion est vert, on lui donne la version verte de l'image
 			sprite = new javax.swing.ImageIcon(getClass().getResource("/pfiches/recherche sprites/cubeV.png"));
-		} else if ("rouge".equals(team)) { //sinon si c'est rouge, la version rouge                                                     y
+		} else if ("rouge".equals(team)) { //sinon si c'est rouge, la version rouge                                                     
 			sprite = new javax.swing.ImageIcon(getClass().getResource("/pfiches/recherche sprites/cubeR.png"));
 		}
 	}

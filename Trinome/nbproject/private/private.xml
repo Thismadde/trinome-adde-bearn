@@ -1,10 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< Updated upstream
             <file>file:/C:/Users/clary/OneDrive/Documents/GitHub/trinome-adde-bearn/Trinome/src/pfiches/FAccueil.java</file>
             <file>file:/C:/Users/clary/OneDrive/Documents/GitHub/trinome-adde-bearn/Trinome/src/pfiches/FJeu.java</file>
+=======
+            <file>file:/C:/Users/Utilisateur/OneDrive/Documents/GitHub/tritri/trinome-adde-bearn/Trinome/src/trinome/Cube.java</file>
+            <file>file:/C:/Users/Utilisateur/OneDrive/Documents/GitHub/tritri/trinome-adde-bearn/Trinome/src/trinome/Sphere.java</file>
+            <file>file:/C:/Users/Utilisateur/OneDrive/Documents/GitHub/tritri/trinome-adde-bearn/Trinome/src/trinome/Pyramide.java</file>
+            <file>file:/C:/Users/Utilisateur/OneDrive/Documents/GitHub/tritri/trinome-adde-bearn/Trinome/src/pfiches/FJeu.java</file>
+            <file>file:/C:/Users/Utilisateur/OneDrive/Documents/GitHub/tritri/trinome-adde-bearn/Trinome/src/trinome/PyramSpe.java</file>
+            <file>file:/C:/Users/Utilisateur/OneDrive/Documents/GitHub/tritri/trinome-adde-bearn/Trinome/src/pfiches/FAccueil.java</file>
+            <file>file:/C:/Users/Utilisateur/OneDrive/Documents/GitHub/tritri/trinome-adde-bearn/Trinome/src/trinome/CubeSpe.java</file>
+            <file>file:/C:/Users/Utilisateur/OneDrive/Documents/GitHub/tritri/trinome-adde-bearn/Trinome/src/trinome/Plateau.java</file>
+            <file>file:/C:/Users/Utilisateur/OneDrive/Documents/GitHub/tritri/trinome-adde-bearn/Trinome/src/trinome/Piece.java</file>
+            <file>file:/C:/Users/Utilisateur/OneDrive/Documents/GitHub/tritri/trinome-adde-bearn/Trinome/src/trinome/SphereSpe.java</file>
+>>>>>>> Stashed changes
         </group>
     </open-files>
 </project-private>

@@ -33,7 +33,7 @@ public class PyramSpe extends Pyramide {
 	@Override
 	public ArrayList<Integer[]> radar(ArrayList<Piece> pionsr, ArrayList<Piece> pionsv) {
 
-		//de meme que pour pyramide
+		//de meme que pour pyramide dans un premeir temps
 		if (color.equals("rouge")) {
 			samecol = (ArrayList<Piece>) pionsr.clone();
 			othercol = (ArrayList<Piece>) pionsv.clone();
@@ -66,7 +66,7 @@ public class PyramSpe extends Pyramide {
 		}
 
 		//-2 -2                                                                                             
-		if (conflict(position[0] - 1, position[1] - 1, othercol) && (0 < position[0] - 2) && (0 < position[1] - 2)//ici on verifie si il y a bien un ennemi a 1 case de distance, et si la case suivante est libre
+		if (conflict(position[0] - 1, position[1] - 1, othercol) && (0 < position[0] - 2) && (0 < position[1] - 2)//pour les 4 verif suivantes, on verifie si il y a bien un ennemi a 1 case de distance, et si la case suivante est libre
 		&& !conflict(position[0] - 2, position[1] - 2, samecol) && !conflict(position[0] - 2, position[1] - 2, othercol)) {  //
 			Integer[] npos = {position[0] - 2, position[1] - 2};                                                       //
 			zbleh.add(npos);                                                                                      //
