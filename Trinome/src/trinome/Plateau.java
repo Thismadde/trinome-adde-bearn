@@ -25,10 +25,6 @@ public class Plateau {
 	private final String pseudo1;
 	private final String pseudo2;
 	public int tour = 0;
-<<<<<<< Updated upstream
-	public Integer[] oriPosi;
-=======
->>>>>>> Stashed changes
 	public Piece oriPawn;
 
 	public Plateau(String a, String b) {
@@ -242,23 +238,14 @@ public class Plateau {
 			FileWriter fich = new FileWriter("SaveFile_" + pseudo1 + "_" + pseudo2); //on ouvre le fichier aux noms des joueurs, ou on le créé s'il n'existe pas
 			while (it.hasNext()) { //on parcourt tous les pions rouges
 				Piece p = it.next();
-<<<<<<< Updated upstream
-				fich.write(p.getType() + "," + p.position[0] + "," + p.position[1] + "," + Boolean.toString(p.frozen)
-						+ "," + Boolean.toString(p.activeJoker) + ";");
-=======
 				fich.write(p.getType() + "," + p.position[0] + "," + p.position[1] + "," + Boolean.toString(p.frozen) //on ecrit leurs composantes pertinentes séparées par des , pour chacun sur la premiere ligne
 				+ "," + Boolean.toString(p.activeJoker) + ";");  //chaque "bloc" de pion est séparé sur la ligne par des ;
->>>>>>> Stashed changes
 			}
 			fich.write(System.lineSeparator()); //on passe a la ligne suivante
 			while (it2.hasNext()) {  //on procede de meme pour lespions verts, juste sur la deuxieme ligne
 				Piece p = it2.next();
 				fich.write(p.getType() + "," + p.position[0] + "," + p.position[1] + "," + Boolean.toString(p.frozen)
-<<<<<<< Updated upstream
-						+ "," + Boolean.toString(p.activeJoker) + ";");
-=======
 				+ "," + Boolean.toString(p.activeJoker) + ";");
->>>>>>> Stashed changes
 			}
 			fich.write(System.lineSeparator() + tour); //enfin on ecrit sur la troisieme ligne le tour actuel
 			fich.close();
