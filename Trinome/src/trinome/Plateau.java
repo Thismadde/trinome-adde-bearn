@@ -26,7 +26,7 @@ public class Plateau {
 	private final String pseudo2;
 	public int tour = 0;
 	public Integer[] oriPosi;
-	private Piece oriPawn;
+	public Piece oriPawn;
 
 	public Plateau(String a, String b) {
 		pionsr = new ArrayList<>();

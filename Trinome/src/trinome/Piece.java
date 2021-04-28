@@ -20,6 +20,7 @@ public class Piece {
 	public String color;			//couleur du pion
 	public boolean activeJoker = false;	//joker des cubes speciaux
 	public ImageIcon sprite;		
+        boolean joker;
 
 	public Piece(boolean fix, Integer[] pos, String team, boolean j) {
 		frozen = fix;
