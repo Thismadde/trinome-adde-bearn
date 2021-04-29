@@ -1105,7 +1105,7 @@ public class FJeu extends javax.swing.JDialog {
             .addGroup(jInternalFrame1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(labelInfos, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pfiches/recherche sprites/02notes.png"))); // NOI18N
@@ -1389,7 +1389,7 @@ public class FJeu extends javax.swing.JDialog {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(18, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(labelPseudo1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1541,10 +1541,10 @@ public class FJeu extends javax.swing.JDialog {
                             .addComponent(jButton112, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(labelPseudo2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(13, 13, 13))
+                        .addContainerGap(24, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(slap1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(slap1, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)
                             .addComponent(slap2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1568,20 +1568,22 @@ public class FJeu extends javax.swing.JDialog {
 				case "choix":
 					if (plato.choix(posi).equals("")) { //si le retour est "", alors tout s'est bien passé
 						((JButton) evt.getSource()).setBackground(Color.DARK_GRAY); //on passe le background en gris foncé pour confort visuel
-						step = "cible";
+						step = "cible";  //tout s'est bien passé donc le prochain clic sera pour deplacer
 						labelInfos.setText("<html>"+"choix de la destination à partir de " + str + System.lineSeparator()+ "（⊙ｏ⊙）" + "</html>");
 						slap1.setVisible(false);
 						slap2.setVisible(false);
 					}
-					else {labelInfos.setText("<html>"+ plato.choix(posi) + System.lineSeparator() + "(⊙_⊙;)" + "</html>");
+					else {  //le clic est invalide
+						labelInfos.setText("<html>"+ plato.choix(posi) + System.lineSeparator() + "(⊙_⊙;)" + "</html>"); //on affiche donc l'erreur renvoyée par choix()
 						slap1.setVisible(true);
-						slap2.setVisible(true);}
+						slap2.setVisible(true);
+					}
 
 					break;
-				case "cible":
-					if (plato.target(posi)) {
-						step = "choix";
-						if(labelPseudo1.isOpaque()){
+				case "cible": 
+					if (plato.target(posi)) {  //le mouvement est valide, le pion a été delacé etc
+						step = "choix";  //le prochain clic sera le choix a nouveau
+						if(labelPseudo1.isOpaque()){   //maj de l'affichage d'un joueur a l'autre
 							labelPseudo2.setOpaque(true);
 							labelPseudo1.setOpaque(false);
 						}
@@ -1589,77 +1591,67 @@ public class FJeu extends javax.swing.JDialog {
 							labelPseudo1.setOpaque(true);
 							labelPseudo2.setOpaque(false);
 						}
-						labelPseudo2.repaint();
+						labelPseudo2.repaint();  //on repeint pour maj l'ecran, sinon ca marche pas
 						labelPseudo1.repaint();
-						afficher(plato.pionsr, plato.pionsv);
+						afficher(plato.pionsr, plato.pionsv);   //on affiche les pions 
 						labelInfos.setText("<html>(☞ﾟヮﾟ)☞ Choix du pion ☜(ﾟヮﾟ☜)</html>");
 						slap1.setVisible(false);
 						slap2.setVisible(false);
 					}
-					else if (Arrays.equals(posi,plato.oriPawn.position)){
-						step = "choix";
+					else if (Arrays.equals(posi,plato.oriPawn.position)){  //si on a en fait recliquer sur la meme case
+						step = "choix";    //on souhaite alors reselctionner une case, sans passer a l'autre joueur
 						((JButton) evt.getSource()).setBackground(null);
 						labelInfos.setText("<html>(☞ﾟヮﾟ)☞ Choix du pion ☜(ﾟヮﾟ☜)</html>");
 						slap1.setVisible(false);
 						slap2.setVisible(false);
 					}
 					else {
-						labelInfos.setText("Cette case n'est pas disponible" + System.lineSeparator() + "ಠ_ಠ");
-						slap1.setVisible(true);
+						labelInfos.setText("Cette case n'est pas disponible" + System.lineSeparator() + "ಠ_ಠ");  //si le mouvement est invalide et pas non plus un reclic, c'est une erruer
+						slap1.setVisible(true);  
 						slap2.setVisible(true);}
 					break;
 				default:
 			}
 		}
-		if (plato.endGame()) { //on verifie tout d'abord si la partie est finie (
+		if (plato.endGame()) { //on verifie tout d'abord si la partie est finie apres le coup aussi, sinon l'affichage ne se fait que si on tente de jouer alors que c'est deja fini
 			labelInfos.setText("Partie finie!");
 		}
 	}// GEN-LAST:event_jButton1ActionPerformed
 
 	private void jQuitterActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton122ActionPerformed
 		// TODO add your handling code here:
-		plato.save();
-		dispose();
+		plato.save(); //on sauvegarde (enfin, on essaie)
+		dispose();  //on ferme la fenetre de jeu
 	}
 
 	private void afficher(ArrayList<Piece> pawns1, ArrayList<Piece> pawns2) {
-
-		Component[] a = this.getContentPane().getComponents();
-		for (Component b : a) {
-			if (b instanceof JButton) {
-				((JButton) b).setBackground(null);
-				((JButton) b).setIcon(null);
-				for (Piece p : pawns1) {
-					try {
-
-						String str = ((JButton) b).getActionCommand();
-						String[] str2 = str.split(",");
-						Integer[] posi = new Integer[]{Integer.valueOf(str2[0]), Integer.valueOf(str2[1])};
-						if (posi[0] == p.position[0] && posi[1] == p.position[1]) {
-							ImageIcon icon = p.sprite;
-							((JButton) b).setIcon(resizeIcon(icon, b.getWidth(), b.getHeight()));
+		//affiche les pions sur la fenetre
+		Component[] a = this.getContentPane().getComponents(); //on recupere tous les elements de la fenetre (dont les boutons)
+		for (Component b : a) {  //on parcourt ces elements
+			if (b instanceof JButton) {   //si c'est un bouton
+				((JButton) b).setBackground(null);  //on remet a chaque fois le fond en gris clair
+				((JButton) b).setIcon(null);  //on retire l'icone (car le pion a peut-etre bougé entre temps
+				String str = ((JButton) b).getActionCommand();  //coordonnées de la case
+				String[] str2 = str.split(",");
+				try {
+					Integer[] posi = new Integer[]{Integer.valueOf(str2[0]), Integer.valueOf(str2[1])};  //toutes les actioncommands ne se prêtent pas a cette ligne, donc on la met dans un try
+					for (Piece p : pawns1) {  //on parcourt ensuite la liste de pions rouges
+							if (Arrays.equals(posi, p.position)) {  //si les coordonnées du pion sont celles de la case
+								((JButton) b).setIcon(resizeIcon(p.sprite, b.getWidth(), b.getHeight()));  //on affiche l'image du pion a la bonne taille en icone sur ce bouton
+								break;
+							}
+					}
+					for (Piece p : pawns2) {  //pareil pour les pieces vertes
+						if (Arrays.equals(posi, p.position)) {
+							((JButton) b).setIcon(resizeIcon(p.sprite, b.getWidth(), b.getHeight()));
 							break;
 						}
-					} catch (Exception e) {
 					}
-				}
-				for (Piece p : pawns2) {
-					try {
-
-						String str = ((JButton) b).getActionCommand();
-						String[] str2 = str.split(",");
-						Integer[] posi = new Integer[]{Integer.valueOf(str2[0]), Integer.valueOf(str2[1])};
-						if (posi[0] == p.position[0] && posi[1] == p.position[1]) {
-							ImageIcon icon = p.sprite;
-							((JButton) b).setIcon(resizeIcon(icon, b.getWidth(), b.getHeight()));
-							break;
-						}
-					} catch (Exception e) {
-					}
+				} catch (Exception e) {
 				}
 			}
 		}
-		jButton5.setBackground(Color.red);
+		jButton5.setBackground(Color.red);  //on repasse les cases rouges en rouge
 		jButton6.setBackground(Color.red);
 		jButton7.setBackground(Color.red);
 		jButton115.setBackground(Color.red);
@@ -1667,9 +1659,9 @@ public class FJeu extends javax.swing.JDialog {
 		jButton117.setBackground(Color.red);
 	}
 
-	private static Icon resizeIcon(ImageIcon icon, int resizedWidth, int resizedHeight) {   //vient d'internet, pratique
-		Image img = icon.getImage();
-		Image resizedImage = img.getScaledInstance(resizedWidth, resizedHeight, java.awt.Image.SCALE_SMOOTH);
+	private static Icon resizeIcon(ImageIcon icon, int resizedWidth, int resizedHeight) {  
+		Image img = icon.getImage();   //recuperation de l'image de base
+		Image resizedImage = img.getScaledInstance(resizedWidth, resizedHeight, java.awt.Image.SCALE_SMOOTH);  //creation d'une image aux dimensions specifiées
 		return new ImageIcon(resizedImage);
 	}
 

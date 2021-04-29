@@ -208,33 +208,29 @@ public class FAccueil extends javax.swing.JFrame {
 
     private void bNewGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bNewGameActionPerformed
 		// TODO add your handling code here:
-		String type = "NORMALE";
-		Enumeration<AbstractButton> enu = grpRadButt.getElements();
+		String type = "NORMALE";   //on part du prinicipe que lapartie sera normale
+		Enumeration<AbstractButton> enu = grpRadButt.getElements();  //on recupere les boutons du groupe de boutons radios
 		while (enu.hasMoreElements()) {
 			AbstractButton button = (AbstractButton) enu.nextElement();
-			if (button.isSelected()) {
-				type = button.getActionCommand();
+			if (button.isSelected()) {   //si un des boutons est selectionné
+				type = button.getActionCommand();  //on recupere son actioncommand, soit le type qu'il designe
 				break;
 			}
 		}
-		fichGame = new FJeu(this, false, type.equals("SPECIALE"),tfNom.getText(), jTextField1.getText());
+		fichGame = new FJeu(this, false, type.equals("SPECIALE"),tfNom.getText(), jTextField1.getText());  //on créé la fiche de jeu selon le type selectionné
 		fichGame.setVisible(true);
     }//GEN-LAST:event_bNewGameActionPerformed
 
     private void jRadioNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioNActionPerformed
-		// TODO add your handling code here:
     }//GEN-LAST:event_jRadioNActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-		// TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void tfNomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNomActionPerformed
-		// TODO add your handling code here:
     }//GEN-LAST:event_tfNomActionPerformed
 
     private void jRadioSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioSActionPerformed
-		// TODO add your handling code here:
     }//GEN-LAST:event_jRadioSActionPerformed
 
     private void bQuitterMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bQuitterMouseEntered

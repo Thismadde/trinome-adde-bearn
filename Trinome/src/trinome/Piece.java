@@ -24,8 +24,8 @@ public class Piece {
 	public Piece(boolean fix, Integer[] pos, String team, boolean j) {
 		frozen = fix;
 		position = pos;
-		color = team;
-		activeJoker = j;
+		color = team;  
+		activeJoker = j;  //si le pion a son joker activé ou non
 	}
 
 	public String getColor() {
