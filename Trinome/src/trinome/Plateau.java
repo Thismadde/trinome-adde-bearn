@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Création : 30/01/2021
+ * Dernière modification : 30/04/2021
  */
 package trinome;
 
@@ -15,7 +14,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Iterator;
 
 public class Plateau {
 
@@ -116,9 +114,9 @@ public class Plateau {
 	public boolean movePawn(Piece pawn, Integer[] newpos, int tour) {
 
 		if (tour == 0) { // tour du rouge
-			Iterator<Piece> it = pionsv.iterator();
-			while (it.hasNext()) {  //on parcourt les pions adverses
-				Piece p = it.next();
+			
+			for (Piece p :pionsv) {  //on parcourt les pions adverses
+				
 				if (Arrays.equals(p.position, newpos)) { // si un pion adverse est sur la case d'arrivée, on le supprime
 					if (p.frozen) //sauf s'il est figé, on renvoie alors une non-validation
 					{
@@ -129,9 +127,7 @@ public class Plateau {
 				}
 			}
 		} else if (tour == 1) { // tour du vert, et on fait pareil
-			Iterator<Piece> it = pionsr.iterator();
-			while (it.hasNext()) {
-				Piece p = it.next();
+			for (Piece p : pionsr) {
 				if (Arrays.equals(p.position, newpos)) {
 					if (p.frozen) {
 						return false;
@@ -232,18 +228,14 @@ public class Plateau {
 	}
 
 	public void save() {
-		Iterator<Piece> it = pionsr.iterator();
-		Iterator<Piece> it2 = pionsv.iterator();
 		try {
 			FileWriter fich = new FileWriter("SaveFile_" + pseudo1 + "_" + pseudo2); //on ouvre le fichier aux noms des joueurs, ou on le créé s'il n'existe pas
-			while (it.hasNext()) { //on parcourt tous les pions rouges
-				Piece p = it.next();
+			for (Piece p : pionsr) { //on parcourt tous les pions rouges
 				fich.write(p.getType() + "," + p.position[0] + "," + p.position[1] + "," + Boolean.toString(p.frozen) //on ecrit leurs composantes pertinentes séparées par des , pour chacun sur la premiere ligne
 				+ "," + Boolean.toString(p.activeJoker) + ";");  //chaque "bloc" de pion est séparé sur la ligne par des ;
 			}
 			fich.write(System.lineSeparator()); //on passe a la ligne suivante
-			while (it2.hasNext()) {  //on procede de meme pour lespions verts, juste sur la deuxieme ligne
-				Piece p = it2.next();
+			for (Piece p : pionsv) {  //on procede de meme pour lespions verts, juste sur la deuxieme ligne
 				fich.write(p.getType() + "," + p.position[0] + "," + p.position[1] + "," + Boolean.toString(p.frozen)
 				+ "," + Boolean.toString(p.activeJoker) + ";");
 			}
@@ -361,9 +353,7 @@ public class Plateau {
 		//posi sont les coordonnées de la case sur laquelle on clique
 		String retour = "";
 		if (tour == 1) { // tour du vert
-			Iterator<Piece> it = pionsv.iterator();
-			while (it.hasNext()) {   //on parcourt tous les pions verts
-				Piece p = it.next();
+			for (Piece p : pionsv) {   //on parcourt tous les pions verts
 				if (Arrays.equals(p.position, posi)) {  //si l'un d'eux est sur la case séléctionnée
 					if (p.frozen) //s'il est figé, on renvoie ↓
 					{
@@ -378,10 +368,8 @@ public class Plateau {
 				}
 			}
 			retour = "Elle n'est pas à " + pseudo2 + "!"; //arrivé ici, la case ne porte pas de pion vert.
-		} else {
-			Iterator<Piece> it = pionsr.iterator(); //on fait de meme pour le joueur rouge
-			while (it.hasNext()) {
-				Piece p = it.next();
+		} else { //on fait de meme pour le joueur rouge
+			for (Piece p :pionsr) {
 				if (Arrays.equals(p.position, posi)) {
 					if (p.frozen) {
 						return "Ce pion est figé.";
@@ -405,7 +393,8 @@ public class Plateau {
 
 				if (oriPawn.getType().equals("Pyramide S ")) {
 					Integer[] a = {(oriPawn.position[0] + posi[0]) / 2, (oriPawn.position[1] + posi[1]) / 2};
-					movePawn(oriPawn, a, tour); // deplacement intermediaire pour les pyramides speciales
+					if (a[0]!=oriPawn.position[0] && a[1]!=oriPawn.position[1])
+						movePawn(oriPawn, a, tour); // deplacement intermediaire pour les pyramides speciales
 				}
 				if (!movePawn(oriPawn, posi, tour)) {  //si le pion n'a pas le droit de bouger en fait (verifie entre autre si le pion visé est figé)
 					return false;				//on renvoie false, le mouvement est non validé, le tour ne change pas

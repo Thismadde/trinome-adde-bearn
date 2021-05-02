@@ -1,12 +1,10 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Création : 30/01/2021
+ * Dernière modification : 30/04/2021
  */
 package trinome;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import javax.swing.ImageIcon;
 
 /**
@@ -66,9 +64,7 @@ public class Piece {
 
 	public boolean conflict(int pos1, int pos2, ArrayList<Piece> pions) { //verifie si un pion de la liste occupe deja la case 
 												// repérée par les positions pos1 et pos2 
-		Iterator<Piece> it = pions.iterator();
-		while (it.hasNext()) {       //on parcourt la liste des pions
-			Piece pawn = it.next();
+		for (Piece pawn : pions) {       //on parcourt la liste des pions
 			if (pawn.position[0] == pos1 && pawn.position[1] == pos2) { //Si un des pions de la liste a les memes coordonnées
 				return true;    //alors il y a conflit
 			}

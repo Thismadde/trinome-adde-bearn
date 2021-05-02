@@ -1,8 +1,6 @@
-
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Création : 17/03/2021
+ * Dernière modification : 28/04/2021
  */
 package trinome;
 
@@ -10,7 +8,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Clarrisse, Mathis
+ * @author Clarisse, Mathis
  */
 public class CubeSpe extends Cube {
 
