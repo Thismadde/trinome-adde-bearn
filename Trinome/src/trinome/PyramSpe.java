@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Utilisateur
+ * @author clarisse, mathis
  */
 public class PyramSpe extends Pyramide {
 
@@ -42,7 +42,7 @@ public class PyramSpe extends Pyramide {
 		}
 
 		ArrayList<Integer[]> zbleh = new ArrayList<>();
-
+		
 		//-1 -1
 		if (!conflict(position[0] - 1, position[1] - 1, samecol) && (0 < position[0] - 1) && (0 < position[1] - 1)) {
 			Integer[] npos = {position[0] - 1, position[1] - 1};

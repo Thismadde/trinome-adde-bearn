@@ -9,7 +9,7 @@ import javax.swing.ImageIcon;
 
 /**
  *
- * @author Utilisateur
+ * @author Clarisse, mathis
  */
 public class Piece {
 

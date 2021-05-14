@@ -25,7 +25,7 @@ public class FJeu extends javax.swing.JDialog {
 	/**
 	 * Creates new form Fjeu
 	 */
-	String step;  //string pour gerer les premiers/deuxiems clics de souris en jeu
+	String step;  //string pour gerer les premiers/deuxiemes clics de souris en jeu
 	Plateau plato;   //plateau de jeu dont on va afficher les pions
 
 	public FJeu(java.awt.Frame parent, boolean modal, boolean type, String a, String b) {  //constructeur d'une nouvelle partie
@@ -35,11 +35,11 @@ public class FJeu extends javax.swing.JDialog {
 		labelPseudo1.setText(a);
 		labelPseudo2.setText(b);
 		step = "choix";  //initialisation de step, pour gerer les clics de souris plus tard
-		plato.newGame(type);  //creationdes pions du plateau selon le type de partie specifié en argument
+		plato.newGame(type);  //creation des pions du plateau selon le type de partie specifié en argument
 		labelInfos.setText("Tour du joueur rouge (•ω•`)");
 		afficher(plato.pionsr, plato.pionsv);  //affichage des pions
 		slap1.setVisible(false);//on ne veut pas que ca soit visible au depart
-		slap2.setVisible(false);// "	""	"	"	"	"	"
+		slap2.setVisible(false);// "	 "	  "	  "	    "	   "	      "
 	}
 
 	public FJeu(java.awt.Frame parent, boolean modal, String a, String b) {  //constructeur d'une partie a charger, dans l'ensemble identique a l'autre
@@ -55,7 +55,7 @@ public class FJeu extends javax.swing.JDialog {
 				labelPseudo2.setOpaque(true);
 			}
 		}
-		else { //sinon, si ca plante, palto.reload aura créé une partie vierge, et on affiche alors sur la fenetre le message ↓
+		else { //sinon, si ca plante, plato.reload aura créé une partie vierge, et on affiche alors sur la fenetre le message suivant
 			labelInfos.setText("<html>Chargement échoué! (˘･_･˘)" + System.lineSeparator() + "Partie normale lancée.</html>");
 		}
 		afficher(plato.pionsr, plato.pionsv);
@@ -209,28 +209,28 @@ public class FJeu extends javax.swing.JDialog {
         jButton1.setActionCommand("1,1");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton2.setActionCommand("1,2");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton3.setActionCommand("1,3");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton4.setActionCommand("1,4");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
@@ -238,7 +238,7 @@ public class FJeu extends javax.swing.JDialog {
         jButton5.setActionCommand("1,5");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
@@ -246,7 +246,7 @@ public class FJeu extends javax.swing.JDialog {
         jButton6.setActionCommand("1,6");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
@@ -254,756 +254,756 @@ public class FJeu extends javax.swing.JDialog {
         jButton7.setActionCommand("1,7");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton8.setActionCommand("1,8");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton9.setActionCommand("1,9");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton10.setActionCommand("1,10");
         jButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton11.setActionCommand("1,11");
         jButton11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton12.setActionCommand("2,1");
         jButton12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton13.setActionCommand("2,2");
         jButton13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton14.setActionCommand("2,3");
         jButton14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton15.setActionCommand("2,4");
         jButton15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton16.setActionCommand("2,5");
         jButton16.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton17.setActionCommand("2,6");
         jButton17.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton18.setActionCommand("2,7");
         jButton18.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton19.setActionCommand("2,8");
         jButton19.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton20.setActionCommand("2,9");
         jButton20.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton21.setActionCommand("2,10");
         jButton21.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton22.setActionCommand("2,11");
         jButton22.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton23.setActionCommand("3,1");
         jButton23.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton24.setActionCommand("3,2");
         jButton24.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton25.setActionCommand("3,3");
         jButton25.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton26.setActionCommand("3,4");
         jButton26.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton27.setActionCommand("3,5");
         jButton27.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton28.setActionCommand("3,6");
         jButton28.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton29.setActionCommand("3,7");
         jButton29.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton30.setActionCommand("3,8");
         jButton30.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton31.setActionCommand("3,9");
         jButton31.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton32.setActionCommand("3,10");
         jButton32.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton33.setActionCommand("3,11");
         jButton33.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton34.setActionCommand("4,1");
         jButton34.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton35.setActionCommand("4,2");
         jButton35.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton36.setActionCommand("4,3");
         jButton36.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton37.setActionCommand("4,4");
         jButton37.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton38.setActionCommand("4,5");
         jButton38.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton39.setActionCommand("4,6");
         jButton39.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton40.setActionCommand("4,7");
         jButton40.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton41.setActionCommand("4,8");
         jButton41.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton42.setActionCommand("4,9");
         jButton42.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton43.setActionCommand("4,10");
         jButton43.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton44.setActionCommand("4,11");
         jButton44.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton45.setActionCommand("5,1");
         jButton45.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton46.setActionCommand("5,2");
         jButton46.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton47.setActionCommand("5,3");
         jButton47.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton48.setActionCommand("5,4");
         jButton48.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton49.setActionCommand("5,5");
         jButton49.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton50.setActionCommand("5,6");
         jButton50.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton51.setActionCommand("5,7");
         jButton51.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton52.setActionCommand("5,8");
         jButton52.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton53.setActionCommand("5,9");
         jButton53.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton54.setActionCommand("5,10");
         jButton54.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton55.setActionCommand("5,11");
         jButton55.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton56.setActionCommand("6,1");
         jButton56.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton57.setActionCommand("6,2");
         jButton57.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton58.setActionCommand("6,3");
         jButton58.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton59.setActionCommand("6,4");
         jButton59.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton60.setActionCommand("6,5");
         jButton60.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton61.setActionCommand("6,6");
         jButton61.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton62.setActionCommand("6,7");
         jButton62.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton63.setActionCommand("6,8");
         jButton63.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton64.setActionCommand("6,9");
         jButton64.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton65.setActionCommand("6,10");
         jButton65.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton66.setActionCommand("6,11");
         jButton66.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton67.setActionCommand("7,1");
         jButton67.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton68.setActionCommand("7,2");
         jButton68.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton69.setActionCommand("7,3");
         jButton69.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton70.setActionCommand("7,4");
         jButton70.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton71.setActionCommand("7,5");
         jButton71.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton72.setActionCommand("7,6");
         jButton72.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton73.setActionCommand("7,7");
         jButton73.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton74.setActionCommand("7,8");
         jButton74.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton75.setActionCommand("7,9");
         jButton75.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton76.setActionCommand("7,10");
         jButton76.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton77.setActionCommand("7,11");
         jButton77.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton78.setActionCommand("8,1");
         jButton78.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton79.setActionCommand("8,2");
         jButton79.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton80.setActionCommand("8,3");
         jButton80.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton81.setActionCommand("8,4");
         jButton81.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton82.setActionCommand("8,5");
         jButton82.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton83.setActionCommand("8,6");
         jButton83.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton84.setActionCommand("8,7");
         jButton84.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton85.setActionCommand("8,8");
         jButton85.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton86.setActionCommand("8,9");
         jButton86.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton87.setActionCommand("8,10");
         jButton87.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton88.setActionCommand("8,11");
         jButton88.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton89.setActionCommand("9,1");
         jButton89.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton90.setActionCommand("9,2");
         jButton90.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton91.setActionCommand("9,3");
         jButton91.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton92.setActionCommand("9,4");
         jButton92.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton93.setActionCommand("9,5");
         jButton93.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton94.setActionCommand("9,6");
         jButton94.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton95.setActionCommand("9,7");
         jButton95.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton96.setActionCommand("9,8");
         jButton96.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton97.setActionCommand("9,9");
         jButton97.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton98.setActionCommand("9,10");
         jButton98.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton99.setActionCommand("9,11");
         jButton99.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton100.setActionCommand("10,1");
         jButton100.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton101.setActionCommand("10,2");
         jButton101.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton102.setActionCommand("10,3");
         jButton102.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton103.setActionCommand("10,4");
         jButton103.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton104.setActionCommand("10,5");
         jButton104.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton105.setActionCommand("10,6");
         jButton105.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton106.setActionCommand("10,7");
         jButton106.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton107.setActionCommand("10,8");
         jButton107.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton108.setActionCommand("10,9");
         jButton108.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton109.setActionCommand("10,10");
         jButton109.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton110.setActionCommand("10,11");
         jButton110.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton111.setActionCommand("11,1");
         jButton111.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton112.setActionCommand("11,2");
         jButton112.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton113.setActionCommand("11,3");
         jButton113.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton114.setActionCommand("11,4");
         jButton114.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
@@ -1011,7 +1011,7 @@ public class FJeu extends javax.swing.JDialog {
         jButton115.setActionCommand("11,5");
         jButton115.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
@@ -1019,7 +1019,7 @@ public class FJeu extends javax.swing.JDialog {
         jButton116.setActionCommand("11,6");
         jButton116.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
@@ -1027,35 +1027,35 @@ public class FJeu extends javax.swing.JDialog {
         jButton117.setActionCommand("11,7");
         jButton117.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton118.setActionCommand("11,8");
         jButton118.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton119.setActionCommand("11,9");
         jButton119.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton120.setActionCommand("11,10");
         jButton120.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
         jButton121.setActionCommand("11,11");
         jButton121.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clicCase(evt);
             }
         });
 
@@ -1557,18 +1557,18 @@ public class FJeu extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-	private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton1ActionPerformed
+	private void clicCase(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton1ActionPerformed
 		// lorsque l'on clic sur l'un des boutons du plateau
 		if (!plato.endGame()) { //si le jeu n'est pas fini
-			String str = evt.getActionCommand(); //on recuere l'action commande, qui contient les coordonnees
+			String str = evt.getActionCommand(); //on recupere l'actioncommand, qui contient les coordonnees du bouton
 			String[] str2 = str.split(",");
 			Integer[] posi = new Integer[]{Integer.valueOf(str2[0]), Integer.valueOf(str2[1])};
 			switch (step) {  //selon l'etape du tour (selection de pion "choix" ou selection de la case d'arrivée "cible") 
 				case "choix":
-					if (plato.choix(posi).equals("")) { //si le retour est "", alors tout s'est bien passé
+					if (plato.choix(posi).equals("")) { //si le retour est "", alors tout s'est bien passé (pas de message d'"erreur")
 						((JButton) evt.getSource()).setBackground(Color.DARK_GRAY); //on passe le background en gris foncé pour confort visuel
-						step = "cible";  //tout s'est bien passé donc le prochain clic sera pour deplacer
-						labelInfos.setText("<html>"+"choix de la destination à partir de " + str + System.lineSeparator()+ "（⊙ｏ⊙）" + "</html>");
+						step = "cible";  //tout s'est bien passé donc le prochain clic sera pour deplacer notre pion
+						labelInfos.setText("<html>"+"choix de la destination à partir de " + str + System.lineSeparator()+ "（⊙ｏ⊙）" + "</html>"); //bornes html pour retour a la ligne automatique
 						slap1.setVisible(false);
 						slap2.setVisible(false);
 					}
@@ -1580,7 +1580,7 @@ public class FJeu extends javax.swing.JDialog {
 
 					break;
 				case "cible": 
-					if (plato.target(posi)) {  //le mouvement est valide, le pion a été delacé etc
+					if (plato.target(posi)) {  //le mouvement est valide, le pion a été deplacé etc
 						step = "choix";  //le prochain clic sera le choix a nouveau
 						if(labelPseudo1.isOpaque()){   //maj de l'affichage d'un joueur a l'autre
 							labelPseudo2.setOpaque(true);
@@ -1598,14 +1598,14 @@ public class FJeu extends javax.swing.JDialog {
 						slap2.setVisible(false);
 					}
 					else if (Arrays.equals(posi,plato.oriPawn.position)){  //si on a en fait recliquer sur la meme case
-						step = "choix";    //on souhaite alors reselctionner une case, sans passer a l'autre joueur
+						step = "choix";    //on souhaite alors reselectionner une case, sans passer a l'autre joueur
 						((JButton) evt.getSource()).setBackground(null);
 						labelInfos.setText("<html>(☞ﾟヮﾟ)☞ Choix du pion ☜(ﾟヮﾟ☜)</html>");
 						slap1.setVisible(false);
 						slap2.setVisible(false);
 					}
 					else {
-						labelInfos.setText("Cette case n'est pas disponible" + System.lineSeparator() + "ಠ_ಠ");  //si le mouvement est invalide et pas non plus un reclic, c'est une erruer
+						labelInfos.setText("Cette case n'est pas disponible" + System.lineSeparator() + "ಠ_ಠ");  //si le mouvement est invalide et pas non plus un reclic, c'est une erreur
 						slap1.setVisible(true);  
 						slap2.setVisible(true);}
 					break;
@@ -1619,7 +1619,7 @@ public class FJeu extends javax.swing.JDialog {
 
 	private void jQuitterActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton122ActionPerformed
 		// TODO add your handling code here:
-		plato.save(); //on sauvegarde (enfin, on essaie)
+		plato.save(); //on sauvegarde 
 		dispose();  //on ferme la fenetre de jeu
 	}
 
@@ -1629,7 +1629,7 @@ public class FJeu extends javax.swing.JDialog {
 		for (Component b : a) {  //on parcourt ces elements
 			if (b instanceof JButton) {   //si c'est un bouton
 				((JButton) b).setBackground(null);  //on remet a chaque fois le fond en gris clair
-				((JButton) b).setIcon(null);  //on retire l'icone (car le pion a peut-etre bougé entre temps
+				((JButton) b).setIcon(null);  //on retire l'icone (car le pion a peut-etre bougé entre temps)
 				String str = ((JButton) b).getActionCommand();  //coordonnées de la case
 				String[] str2 = str.split(",");
 				try {
@@ -1702,7 +1702,6 @@ public class FJeu extends javax.swing.JDialog {
 				dialog.addWindowListener(new java.awt.event.WindowAdapter() {
 					@Override
 					public void windowClosing(java.awt.event.WindowEvent e) {
-						System.out.println("fermé");
 						System.exit(0);
 					}
 				});
