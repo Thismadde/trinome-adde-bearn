@@ -201,13 +201,13 @@ public class FAccueil extends javax.swing.JFrame {
 
     private void bChargerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bChargerActionPerformed
 		// TODO add your handling code here:
-		fichGame = new FJeu(this, false, tfNom.getText(), jTextField1.getText()); // on genere la fenetre de jeu avec le constructeur qui essaiera de charger la sauvegarde
+		fichGame = new FJeu(this, false, tfNom.getText(), jTextField1.getText()); // on genere la fenetre de jeu avec le constructeur, qui essaiera de charger la sauvegarde
 		fichGame.setVisible(true);  //on affiche cette fenetre
     }//GEN-LAST:event_bChargerActionPerformed
 
     private void bNewGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bNewGameActionPerformed
 		// TODO add your handling code here:
-		String type = "NORMALE";   //on part du prinicipe que lapartie sera normale
+		String type = "NORMALE";   //on part du principe que la partie sera normale
 		Enumeration<AbstractButton> enu = grpRadButt.getElements();  //on recupere les boutons du groupe de boutons radios
 		while (enu.hasMoreElements()) {
 			AbstractButton button = (AbstractButton) enu.nextElement();
@@ -237,7 +237,7 @@ public class FAccueil extends javax.swing.JFrame {
     }//GEN-LAST:event_bQuitterMouseEntered
 
     private void bQuitterMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bQuitterMouseExited
-        bQuitter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pfiches/recherche sprites/aa.png")));
+	bQuitter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pfiches/recherche sprites/aa.png")));
     }//GEN-LAST:event_bQuitterMouseExited
 
 	/**

@@ -6,7 +6,7 @@ package trinome;
 
 /**
  *
- * @author Utilisateur
+ * @author clarisse, mathis
  */
 import java.util.ArrayList;
 

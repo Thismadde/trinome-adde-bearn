@@ -6,7 +6,7 @@ package trinome;
 
 /**
  *
- * @author Utilisateur
+ * @author clarisse, mathis
  */
 import java.util.ArrayList;
 
@@ -34,16 +34,16 @@ public class Cube extends Piece {
 		// renvoie les cases ou le pion peut aller
 		
 		
-		if (color.equals("rouge")) {                                 //
-			sameCol = (ArrayList<Piece>) pionsr.clone();            //
-		} // selon la couleur du pion, on etudiera 
-		else if (color.equals("vert")) {                             // une liste differente
-			sameCol = (ArrayList<Piece>) pionsv.clone();            //
+		if (color.equals("rouge")) {
+			sameCol = (ArrayList<Piece>) pionsr.clone(); //liste avec laquelle on veut verifier les collisons, ici ici les pions de la meme couleur, car on peut de toute maniere manger les autres
+		}
+		else if (color.equals("vert")) {
+			sameCol = (ArrayList<Piece>) pionsv.clone();
 		}
 
 		ArrayList<Integer[]> zbleh = new ArrayList<>();   //liste des cases atteignables disponibles
 
-		//-1 0    <= deplacement testé sur lase de coordonnées [x-1,y]
+		//-1 0    <= deplacement testé sur la case de coordonnées [x-1,y]
 		if (!conflict(position[0] - 1, position[1], sameCol) && (0 < position[0] - 1)) {
 			Integer[] npos = {position[0] - 1, position[1]};
 			zbleh.add(npos);

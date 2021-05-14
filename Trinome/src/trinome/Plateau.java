@@ -6,7 +6,7 @@ package trinome;
 
 /**
  *
- * @author Utilisateur
+ * @author clarisse, mathis
  */
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -17,13 +17,13 @@ import java.util.Arrays;
 
 public class Plateau {
 
-	public ArrayList<Piece> pionsr, pionsv; // liste des pions verts et rouges
+	public ArrayList<Piece> pionsr, pionsv;		// liste des pions verts et rouges
 	private boolean cfrozer, pfrozer, sfrozer;		//faux tant que un pion n'est pas figé; c pour cube, p pour pyra, s pour sphere
 	private boolean cfrozev, pfrozev, sfrozev;		//pour les verts
 	private final String pseudo1;
 	private final String pseudo2;
-	public int tour = 0;
-	public Piece oriPawn;
+	public int tour = 0;				//0 correspond au tour du rouge, 1 à celui du vert
+	public Piece oriPawn;			// pièce sélectionnée en début detour que l'on garde en éméoire
 
 	public Plateau(String a, String b) {
 		pionsr = new ArrayList<>();
@@ -143,8 +143,11 @@ public class Plateau {
 
 	public void newGame(boolean special) { // fonction qui place les pions a des endroits predeterminés;
 
+		//creation d'un Cube non figé au point  3 1        rouge    sans joker
 		Cube p = new Cube(false, new Integer[]{3, 1}, "rouge", false);
+		//on l'ajoute a la liste
 		pionsr.add(p);
+		//etc
 		Cube p2 = new Cube(false, new Integer[]{1, 3}, "rouge", false);
 		pionsr.add(p2);
 		Cube p3 = new Cube(false, new Integer[]{1, 9}, "rouge", false);
@@ -293,7 +296,7 @@ public class Plateau {
 						}
 					}
 				}
-				if (c == "vert") {  //on y entre lorsque c'est les pions verts, et praeil que les rouges apres
+				if (c == "vert") {  //on y entre lorsque c'est les pions verts, et pareil que les rouges apres
 					for (String pion : pions) {
 						String[] infos = pion.split(",");
 						Integer[] q = {Integer.valueOf(infos[1]), Integer.valueOf(infos[2])};
@@ -349,17 +352,17 @@ public class Plateau {
 
 	}
 
-	public String choix(Integer[] posi) { //fonction qui intervient lors de la selection du pion dans l'interfcae graphique
+	public String choix(Integer[] posi) { //fonction qui intervient lors de la selection du pion dans l'interface graphique
 		//posi sont les coordonnées de la case sur laquelle on clique
 		String retour = "";
 		if (tour == 1) { // tour du vert
 			for (Piece p : pionsv) {   //on parcourt tous les pions verts
 				if (Arrays.equals(p.position, posi)) {  //si l'un d'eux est sur la case séléctionnée
-					if (p.frozen) //s'il est figé, on renvoie ↓
+					if (p.frozen) //s'il est figé, on renvoie ceci
 					{
 						return "Ce pion est figé.";
 					}
-					if (p.radar(pionsr, pionsv).isEmpty()) //si le radr est vide, donc si la piece ne peut pas bouger; ↓
+					if (p.radar(pionsr, pionsv).isEmpty()) //si le radar est vide, donc si la piece ne peut pas bouger; 
 					{
 						return "Ce pion n'a pas d'option de déplacement.";
 					}
@@ -381,15 +384,16 @@ public class Plateau {
 					return retour;
 				}
 			}
-			retour = "Elle n'est pas à " + pseudo1 + "!";
+			retour = "Elle n'est pas à " + pseudo1 + "!"; 
 		}
-		return "Cette pièce ne peut pas bouger!" + System.lineSeparator() + retour;  //on arrive ici lorsque la casene porte ni pion rouge, ni pion vert. Elle n'est donc pas au joueur dont c'est le tour. La string *retour* porte le message d'erruer propre au joueur actuel
+		return "Cette pièce ne peut pas bouger!" + System.lineSeparator() + retour;  //on arrive ici lorsque la case ne porte ni pion rouge, ni pion vert. Elle n'est donc pas au joueur dont c'est le tour. 
+														//La string *retour* porte le message d'erruer propre au joueur actuel
 	}
 
-	public boolean target(Integer[] posi) {  //pour selectionner une case valide d'arrivée, apres avoir choisi un pion a bouger, avecposi les coordonnées de la case a tester
+	public boolean target(Integer[] posi) {  //pour selectionner une case d'arrivée valide, apres avoir choisi un pion a bouger, avec posi les coordonnées de la case a tester
 		ArrayList<Integer[]> possib = oriPawn.radar(pionsr, pionsv);  //on recupere tout d'abord les cases disponibles de notre premier pion, enregistré par choix() dans oriPawn, avec son radar()
 		for (Integer[] aaa : possib) {  //on parcourt les possibilités (qui sont des coordonnées)
-			if (aaa[0].equals(posi[0]) && aaa[1].equals(posi[1])) { //si les coordonnées de la case sont dans la liste, alors c'est que le deplacement est vailde
+			if (aaa[0].equals(posi[0]) && aaa[1].equals(posi[1])) { //si les coordonnées de la case sont dans la liste, alors c'est que le deplacement est valide
 
 				if (oriPawn.getType().equals("Pyramide S ")) {
 					Integer[] a = {(oriPawn.position[0] + posi[0]) / 2, (oriPawn.position[1] + posi[1]) / 2};
@@ -412,6 +416,6 @@ public class Plateau {
 				return true;  //arrivé ici, tout s'est bien passé, le mouvement est valide
 			}
 		}
-		return false;  //ici la case n'est pas dans la liste des deplacments possibles, donc le deplacement n'est pas valde
+		return false;  //ici la case n'est pas dans la liste des deplacments possibles, donc le deplacement n'est pas valide
 	}
 }
